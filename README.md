@@ -1,2 +1,3 @@
-# configs
-Configs
+# Configs
+
+My configs.

@@ -1,0 +1,17 @@
+{
+    "font_size": 12,
+
+    "draw_minimap_border": true,
+    "always_show_minimap_viewport": true,
+
+    "highlight_line": true,
+
+    "translate_tabs_to_spaces": true,
+    "trim_trailing_white_space_on_save": "all",
+    "trim_only_modified_white_space": false,
+    "ensure_newline_at_eof_on_save": true,
+    "draw_white_space": ["trailing"],
+
+    "show_line_endings": true,
+    "relative_line_numbers": false
+}

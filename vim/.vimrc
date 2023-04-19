@@ -1,13 +1,27 @@
-set exrc
-set smartindent
-set autoindent
+syntax on
+
+set showtabline=2
+
 set number
-set shiftwidth=4
+
 set tabstop=4
+set shiftwidth=4
 set expandtab
+set autoindent
+set smartindent
+
+set ignorecase
+set smartcase
+
+set list
+set listchars=tab:‣\ ,trail:·
+set cursorline
+
+set splitright
+set splitbelow
+
 set mouse=a
 set viminfo='100,<1000,s100,h
-syntax on
 
 nnoremap <F9> :set makeprg=g++\ -DCH_EGOR\ -Wall\ -Wextra\ -std=c++20\ -O2\ -o\ %<\ %<.cpp<CR>:make<CR>
 nnoremap <C-F9> :set makeprg=g++\ -DCH_EGOR\ -Wall\ -Wextra\ -g\ -std=c++20\ -o\ %<\ %<.cpp<CR>:make<CR>

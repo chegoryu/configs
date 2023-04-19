@@ -1,6 +1,6 @@
 server {
     root /var/www/chprog.com/html;
-    index index.html index.htm index.nginx-debian.html;
+    index index.html;
 
     server_name chprog.com;
 
@@ -32,7 +32,6 @@ server {
 
 server {
     root /var/www/files.chprog.com/files;
-    index index.html index.htm index.nginx-debian.html;
 
     server_name files.chprog.com;
 

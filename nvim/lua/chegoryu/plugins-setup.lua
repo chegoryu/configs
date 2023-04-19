@@ -29,95 +29,21 @@ return packer.startup(function(use)
 	-- Packer can manage itself (magic).
 	use("wbthomason/packer.nvim")
 
+	--------------------------------------------------------------------------------
+	-- General.
+	--------------------------------------------------------------------------------
+
 	-- Lua functions that many plugins use.
 	use("nvim-lua/plenary.nvim")
 
-	-- Colorscheme.
-	use("bluz71/vim-nightfly-guicolors")
-
-	-- Tmux & split window navigation.
-	use("christoomey/vim-tmux-navigator")
-
-	-- Maximizes and restores current window.
-	use("szw/vim-maximizer")
-
-	-- Essential plugins.
-
-	-- Ddd, delete, change surroundings,
+	-- Ddd, delete, change surroundings.
 	use("tpope/vim-surround")
+
 	-- Replace with register contents using motion (gr + motion).
 	use("inkarkat/vim-ReplaceWithRegister")
 
 	-- Commenting with gc.
 	use("numToStr/Comment.nvim")
-
-	-- File explorer.
-	use("nvim-tree/nvim-tree.lua")
-
-	-- Vs-code like icons.
-	use("nvim-tree/nvim-web-devicons")
-
-	-- Statusline.
-	use("nvim-lualine/lualine.nvim")
-
-	-- Telescope.
-
-	-- Dependency for better sorting performance.
-	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
-	-- Fuzzy finder.
-	use({ "nvim-telescope/telescope.nvim", branch = "0.1.x" })
-
-	-- Autocompletion.
-	-- Completion plugin.
-	use("hrsh7th/nvim-cmp")
-	-- Source for text in buffer.
-	use("hrsh7th/cmp-buffer")
-	-- Source for file system paths.
-	use("hrsh7th/cmp-path")
-
-	-- Snippets.
-
-	-- Snippet engine.
-	use("L3MON4D3/LuaSnip")
-	-- For autocompletion.
-	use("saadparwaiz1/cmp_luasnip")
-	-- Useful snippets.
-	use("rafamadriz/friendly-snippets")
-
-	-- Managing & installing lsp servers, linters & formatters.
-	use("williamboman/mason.nvim")
-	-- Bridges gap b/w mason & lspconfig.
-	use("williamboman/mason-lspconfig.nvim")
-
-	-- Configuring lsp servers.
-	use("neovim/nvim-lspconfig")
-	-- For autocompletion.
-	use("hrsh7th/cmp-nvim-lsp")
-	use({
-		"glepnir/lspsaga.nvim",
-		branch = "main",
-		requires = {
-			{ "nvim-tree/nvim-web-devicons" },
-			{ "nvim-treesitter/nvim-treesitter" },
-		},
-	})
-	-- Vs-code like icons for autocompletion.
-	use("onsails/lspkind.nvim")
-
-	-- Formatting & linting.
-	-- Configure formatters & linters.
-	use("jose-elias-alvarez/null-ls.nvim")
-	-- Bridges gap b/w mason & null-ls.
-	use("jayp0521/mason-null-ls.nvim")
-
-	-- Treesitter configuration.
-	use({
-		"nvim-treesitter/nvim-treesitter",
-		run = function()
-			local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
-			ts_update()
-		end,
-	})
 
 	-- Autoclose parens, brackets, quotes, etc...
 	use("windwp/nvim-autopairs")
@@ -128,6 +54,112 @@ return packer.startup(function(use)
 	-- Whitespaces.
 	use("lukoshkin/trailing-whitespace")
 	use("cappyzawa/trim.nvim")
+
+	--------------------------------------------------------------------------------
+	-- Appearance
+	--------------------------------------------------------------------------------
+
+	-- Colorscheme.
+	use("bluz71/vim-nightfly-guicolors")
+
+	-- Vs-code like icons.
+	use("nvim-tree/nvim-web-devicons")
+
+	-- Statusline.
+	use("nvim-lualine/lualine.nvim")
+
+	-- Treesitter configuration (syntax highlighting).
+	use({
+		"nvim-treesitter/nvim-treesitter",
+		run = function()
+			local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
+			ts_update()
+		end,
+	})
+
+	--------------------------------------------------------------------------------
+	-- Navigation
+	--------------------------------------------------------------------------------
+
+	-- Tmux & split window navigation.
+	use("christoomey/vim-tmux-navigator")
+
+	-- Maximizes and restores current window.
+	use("szw/vim-maximizer")
+
+	-- File explorer.
+	use("nvim-tree/nvim-tree.lua")
+
+	--------------------------------------------------------------------------------
+	-- Telescope.
+	--------------------------------------------------------------------------------
+
+	-- Dependency for better sorting performance.
+	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
+	-- Fuzzy finder.
+	use({ "nvim-telescope/telescope.nvim", branch = "0.1.x" })
+
+	--------------------------------------------------------------------------------
+	-- Autocompletion.
+	--------------------------------------------------------------------------------
+
+	-- Completion plugin.
+	use("hrsh7th/nvim-cmp")
+	-- Source for text in buffer.
+	use("hrsh7th/cmp-buffer")
+	-- Source for file system paths.
+	use("hrsh7th/cmp-path")
+
+	--------------------------------------------------------------------------------
+	-- Snippets.
+	--------------------------------------------------------------------------------
+
+	-- Snippet engine.
+	use("L3MON4D3/LuaSnip")
+	-- For autocompletion.
+	use("saadparwaiz1/cmp_luasnip")
+	-- Useful snippets.
+	use("rafamadriz/friendly-snippets")
+
+	--------------------------------------------------------------------------------
+	-- Lsp.
+	--------------------------------------------------------------------------------
+
+	-- Managing & installing lsp servers, linters & formatters.
+	use("williamboman/mason.nvim")
+	-- Bridges gap b/w mason & lspconfig.
+	use("williamboman/mason-lspconfig.nvim")
+
+	-- Configuring lsp servers.
+	use("neovim/nvim-lspconfig")
+
+	-- For autocompletion.
+	use("hrsh7th/cmp-nvim-lsp")
+	use({
+		"glepnir/lspsaga.nvim",
+		branch = "main",
+		requires = {
+			{ "nvim-tree/nvim-web-devicons" },
+			{ "nvim-treesitter/nvim-treesitter" },
+		},
+	})
+
+	-- Vs-code like icons for autocompletion.
+	use("onsails/lspkind.nvim")
+
+	--------------------------------------------------------------------------------
+	-- Formatting & linting.
+	--------------------------------------------------------------------------------
+
+	-- Configure formatters & linters.
+	use("jose-elias-alvarez/null-ls.nvim")
+
+	-- Bridges gap b/w mason & null-ls.
+	use("jayp0521/mason-null-ls.nvim")
+
+	--------------------------------------------------------------------------------
+	-- Bootstrap.
+	--------------------------------------------------------------------------------
 
 	if packer_bootstrap then
 		require("packer").sync()

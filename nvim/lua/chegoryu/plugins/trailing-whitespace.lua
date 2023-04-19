@@ -1,11 +1,11 @@
 local setup, trailingwhitespace = pcall(require, "trailing-whitespace")
 if not setup then
-	return
+    return
 end
 
 trailingwhitespace.setup({
-	patterns = {
-		"[\r \t]\\+$",
-	},
-	default_color = "RoyalBlue4",
+    patterns = {
+        "[\r \t]\\+$",
+    },
+    default_color = "RoyalBlue4",
 })

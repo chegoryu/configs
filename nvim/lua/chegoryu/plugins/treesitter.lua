@@ -1,53 +1,53 @@
 local status, treesitter = pcall(require, "nvim-treesitter.configs")
 if not status then
-	return
+    return
 end
 
 treesitter.setup({
-	-- Enable syntax highlighting.
-	highlight = {
-		enable = true,
-	},
-	-- Enable indentation.
-	indent = {
-		enable = true,
-	},
-	-- Enable autotagging.
-	autotag = {
-		enable = true,
-	},
-	-- Ensure these language parsers are installed.
-	ensure_installed = {
-		"c",
-		"cpp",
+    -- Enable syntax highlighting.
+    highlight = {
+        enable = true,
+    },
+    -- Enable indentation.
+    indent = {
+        enable = true,
+    },
+    -- Enable autotagging.
+    autotag = {
+        enable = true,
+    },
+    -- Ensure these language parsers are installed.
+    ensure_installed = {
+        "c",
+        "cpp",
 
-		"python",
+        "python",
 
-		"go",
-		"gosum",
-		"gomod",
+        "go",
+        "gosum",
+        "gomod",
 
-		"rust",
+        "rust",
 
-		"lua",
+        "lua",
 
-		"java",
-		"kotlin",
+        "java",
+        "kotlin",
 
-		"proto",
+        "proto",
 
-		"bash",
+        "bash",
 
-		"json",
-		"yaml",
+        "json",
+        "yaml",
 
-		"markdown",
-		"markdown_inline",
+        "markdown",
+        "markdown_inline",
 
-		"vim",
-		"dockerfile",
-		"gitignore",
-	},
-	-- Auto install above language parsers.
-	auto_install = true,
+        "vim",
+        "dockerfile",
+        "gitignore",
+    },
+    -- Auto install above language parsers.
+    auto_install = true,
 })

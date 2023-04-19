@@ -1,6 +1,6 @@
 local setup, trim = pcall(require, "trim")
 if not setup then
-	return
+    return
 end
 
 trim.setup()

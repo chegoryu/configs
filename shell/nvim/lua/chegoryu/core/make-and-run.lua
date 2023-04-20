@@ -15,7 +15,7 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
     },
     group = make_and_run,
     callback = function()
-        opt.makeprg = "g++ -DCH_EGOR -Wall -Wextra -std=c++20 -O2 -o %< %"
+        opt.makeprg = "g++ -DCHEGORYU -Wall -Wextra -std=c++20 -O2 -o %< %"
         keymap.set("n", "<F5>", ":!time $(realpath %<)<CR>", { buffer = true })
         keymap.set("n", "<F9>", ":make<CR>", { buffer = true })
     end,

@@ -1,9 +1,27 @@
 local api = vim.api
-local opt = vim.bo
 local keymap = vim.keymap
+local opt = vim.bo
+
+local get_run_command = function(command)
+    return ":15split<CR>:TmuxNavigateDown<CR>:term time " .. command .. "<CR>"
+end
 
 local filetype_options = api.nvim_create_augroup("FiletypeOptions", {
     clear = true,
+})
+
+api.nvim_create_autocmd("TermOpen", {
+    group = filetype_options,
+    callback = function()
+        local opt_local = vim.opt_local
+
+        opt_local.relativenumber = false
+        opt_local.number = false
+
+        opt_local.list = false
+
+        vim.cmd("startinsert")
+    end,
 })
 
 api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
@@ -17,7 +35,7 @@ api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
     group = filetype_options,
     callback = function()
         opt.makeprg = "g++ -DCHEGORYU -Wall -Wextra -std=c++20 -O2 -o %< %"
-        keymap.set("n", "<F5>", ":!time $(realpath %<)<CR>", { buffer = true })
+        keymap.set("n", "<F5>", get_run_command("$(realpath %<)"), { buffer = true })
         keymap.set("n", "<F9>", ":make<CR>", { buffer = true })
     end,
 })
@@ -28,7 +46,7 @@ api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
     },
     group = filetype_options,
     callback = function()
-        keymap.set("n", "<F5>", ":!time python3 $(realpath %)<CR>", { buffer = true })
+        keymap.set("n", "<F5>", get_run_command("python3 $(realpath %)"), { buffer = true })
     end,
 })
 
@@ -41,7 +59,7 @@ api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
         opt.expandtab = false
 
         opt.makeprg = "go build -o %< %"
-        keymap.set("n", "<F5>", ":!time $(realpath %<)<CR>", { buffer = true })
+        keymap.set("n", "<F5>", get_run_command("$(realpath %<)"), { buffer = true })
         keymap.set("n", "<F9>", ":make<CR>", { buffer = true })
     end,
 })
@@ -54,6 +72,6 @@ api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
     },
     group = filetype_options,
     callback = function()
-        keymap.set("n", "<F5>", ":!time bash $(realpath %)<CR>", { buffer = true })
+        keymap.set("n", "<F5>", get_run_command("bash $(realpath %)"), { buffer = true })
     end,
 })

@@ -56,6 +56,15 @@ end
 -- Configure clangd server.
 lspconfig["clangd"].setup({
     capabilities = capabilities,
+    cmd = {
+        "clangd",
+        "--background-index",
+        "--clang-tidy",
+        "--header-insertion=never",
+        "--log=info",
+        "--pretty",
+        "-j=8",
+    },
     on_attach = on_attach,
 })
 

@@ -55,6 +55,9 @@ return packer.startup(function(use)
     use("lukoshkin/trailing-whitespace")
     use("cappyzawa/trim.nvim")
 
+    -- Templates.
+    use("nvimdev/template.nvim")
+
     --------------------------------------------------------------------------------
     -- Appearance.
     --------------------------------------------------------------------------------

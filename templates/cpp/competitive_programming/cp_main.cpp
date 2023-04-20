@@ -38,6 +38,13 @@ using ld = long double;
 
 ////////////////////////////////////////////////////////////////////////////////
 
+clock_t StartTime = 0;
+double GetCurrentTime() {
+	return (ld)(clock() - StartTime) / CLOCKS_PER_SEC;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
 #ifdef CHEGORYU
 mt19937_64 Rng(227);
 #else
@@ -50,12 +57,11 @@ ll MyRand(ll n) {
 
 ////////////////////////////////////////////////////////////////////////////////
 
-[[maybe_unused]] constexpr int INF = 1000 * 1000 * 1000 + 21;
-[[maybe_unused]] constexpr ll LLINF = (1ll << 60) + 5;
-[[maybe_unused]] constexpr int MOD = 1000 * 1000 * 1000 + 7;
-
+void solve();
 
 int main() {
+    StartTime = clock();
+
 #ifdef CHEGORYU
     freopen("input.txt", "r", stdin);
     // freopen("output.txt", "w", stdout);
@@ -64,7 +70,18 @@ int main() {
     // freopen("", "w", stdout);
 #endif
 
-    {{_cursor_}}
+    solve();
 
     return 0;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+[[maybe_unused]] constexpr int INF = 1000 * 1000 * 1000 + 21;
+[[maybe_unused]] constexpr ll LLINF = (1ll << 60) + 5;
+[[maybe_unused]] constexpr int MOD = 1000 * 1000 * 1000 + 7;
+
+
+void solve() {
+    {{_cursor_}}
 }

@@ -47,8 +47,8 @@ inline T ReadInt() {
     return s == 1 ? x : -x;
 }
 
-static int WritePos = 0;
-static char WriteBuf[BUF_SIZE];
+int WritePos = 0;
+char WriteBuf[BUF_SIZE];
 
 inline void WriteChar(int x) {
     if (WritePos == BUF_SIZE) {
@@ -98,7 +98,7 @@ public:
     }
 };
 
-static TFlusher Flusher;
+TFlusher Flusher;
 
 ////////////////////////////////////////////////////////////////////////////////
 

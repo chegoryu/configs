@@ -68,6 +68,16 @@ lspconfig["clangd"].setup({
     on_attach = on_attach,
 })
 
+-- Configure cmake server.
+lspconfig["cmake"].setup({
+    capabilities = capabilities,
+    filetypes = {
+        "CMakeLists.txt",
+        "cmake",
+    },
+    on_attach = on_attach,
+})
+
 -- Configure lua server.
 lspconfig["lua_ls"].setup({
     capabilities = capabilities,

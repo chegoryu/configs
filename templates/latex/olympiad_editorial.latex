@@ -1,0 +1,80 @@
+\documentclass[14pt]{beamer}
+\usepackage{standalone}
+\usetheme{Frankfurt}
+\usecolortheme{beaver}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage{soul}
+\usepackage{etoolbox}
+\usepackage{import}
+
+\usepackage[outdir=./]{epstopdf}
+
+\renewcommand{\le}{\leqslant}
+\renewcommand{\ge}{\geqslant}
+
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+
+\newcommand{\OO}{\mathcal{O}}
+
+\DeclareGraphicsRule{*}{mps}{*}{}
+
+\setlength{\parskip}{8pt}
+
+\begin{document}
+
+\title{Some olympiad}
+\subtitle{Editorial}
+\date{Russia, Moscow, September 5, 2019}
+\author{}
+
+\frame{\titlepage}
+
+\section*{A}
+
+\begin{frame}
+    \begin{center}
+        \LARGE A. ``Problem name''
+    \end{center}
+
+    \begin{itemize}
+        \item Author --- ???
+        \item Developer --- ???
+        \item Editorial --- ???
+    \end{itemize}
+
+\end{frame}
+
+\begin{frame}{Problem statement}
+
+    ???
+
+\end{frame}
+
+\begin{frame}{Partial solution 1}
+
+    ???
+
+\end{frame}
+
+\begin{frame}{Partial solution 2}
+
+    ???
+
+\end{frame}
+
+\begin{frame}{Solution}
+
+    ???
+
+\end{frame}
+
+\end{document}

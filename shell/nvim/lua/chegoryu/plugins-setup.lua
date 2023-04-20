@@ -71,6 +71,9 @@ return packer.startup(function(use)
     -- Statusline.
     use("nvim-lualine/lualine.nvim")
 
+    -- Blankline.
+    use("lukas-reineke/indent-blankline.nvim")
+
     -- Treesitter configuration (syntax highlighting).
     use({
         "nvim-treesitter/nvim-treesitter",

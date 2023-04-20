@@ -26,6 +26,8 @@
 #include <unordered_set>
 #include <vector>
 
+////////////////////////////////////////////////////////////////////////////////
+
 // #pragma comment(linker, "/STACK:256000000")
 
 using namespace std;
@@ -34,19 +36,23 @@ using ll = long long int;
 using ull = unsigned long long int;
 using ld = long double;
 
+////////////////////////////////////////////////////////////////////////////////
+
 #ifdef CHEGORYU
-mt19937_64 rng(227);
+mt19937_64 Rng(227);
 #else
-mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());
+mt19937_64 Rng(chrono::steady_clock::now().time_since_epoch().count());
 #endif
 
-ll my_rand(ll n) {
-	return (ull)rng() % n;
+ll MyRand(ll n) {
+    return (ull)Rng() % n;
 }
 
-[[maybe_unused]] const int INF = 1000 * 1000 * 1000 + 21;
-[[maybe_unused]] const ll LLINF = (1ll << 60) + 5;
-[[maybe_unused]] const int MOD = 1000 * 1000 * 1000 + 7;
+////////////////////////////////////////////////////////////////////////////////
+
+[[maybe_unused]] constexpr int INF = 1000 * 1000 * 1000 + 21;
+[[maybe_unused]] constexpr ll LLINF = (1ll << 60) + 5;
+[[maybe_unused]] constexpr int MOD = 1000 * 1000 * 1000 + 7;
 
 
 int main() {
@@ -57,7 +63,6 @@ int main() {
     // freopen("", "r", stdin);
     // freopen("", "w", stdout);
 #endif
-
 
     {{_cursor_}}
 

@@ -33,6 +33,18 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
 
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
     pattern = {
+        "*.go",
+    },
+    group = make_and_run,
+    callback = function()
+        opt.makeprg = "go build -o %< %"
+        keymap.set("n", "<F5>", ":!time $(realpath %<)<CR>", { buffer = true })
+        keymap.set("n", "<F9>", ":make<CR>", { buffer = true })
+    end,
+})
+
+vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+    pattern = {
         "*.bash",
         "*.sh",
         "*.zsh",

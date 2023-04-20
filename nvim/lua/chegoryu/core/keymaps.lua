@@ -61,26 +61,26 @@ keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
 -- General.
 
 -- Find files within current working directory, respects .gitignore.
-keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>")
+keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<CR>")
 -- Find string in current working directory as you type.
-keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>")
+keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<CR>")
 -- Find string under cursor in current working directory.
-keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>")
+keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<CR>")
 -- Fist open buffers in current neovim instance.
-keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>")
+keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<CR>")
 -- List available help tags.
-keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>")
+keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<CR>")
 
 -- Git commands.
 
--- List all git commits (use <cr> to checkout) ["gc" for git commits].
-keymap.set("n", "<leader>gc", "<cmd>Telescope git_commits<cr>")
--- List git commits for current file/buffer (use <cr> to checkout) ["gfc" for git file commits].
-keymap.set("n", "<leader>gfc", "<cmd>Telescope git_bcommits<cr>")
--- List git branches (use <cr> to checkout) ["gb" for git branch].
-keymap.set("n", "<leader>gb", "<cmd>Telescope git_branches<cr>")
+-- List all git commits (use <CR> to checkout) ["gc" for git commits].
+keymap.set("n", "<leader>gc", "<cmd>Telescope git_commits<CR>")
+-- List git commits for current file/buffer (use <CR> to checkout) ["gfc" for git file commits].
+keymap.set("n", "<leader>gfc", "<cmd>Telescope git_bcommits<CR>")
+-- List git branches (use <CR> to checkout) ["gb" for git branch].
+keymap.set("n", "<leader>gb", "<cmd>Telescope git_branches<CR>")
 -- List current changes per file with diff preview ["gs" for git status].
-keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>")
+keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<CR>")
 
 --------------------------------------------------------------------------------
 -- Lsp.

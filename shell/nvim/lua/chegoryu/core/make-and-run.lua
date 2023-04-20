@@ -33,7 +33,9 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
 
 vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
     pattern = {
+        "*.bash",
         "*.sh",
+        "*.zsh",
     },
     group = make_and_run,
     callback = function()

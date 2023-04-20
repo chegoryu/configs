@@ -78,8 +78,14 @@ lspconfig["cmake"].setup({
     on_attach = on_attach,
 })
 
--- Configure cmake server.
+-- Configure python server.
 lspconfig["pylsp"].setup({
+    capabilities = capabilities,
+    on_attach = on_attach,
+})
+
+-- Configure go server.
+lspconfig["gopls"].setup({
     capabilities = capabilities,
     on_attach = on_attach,
 })

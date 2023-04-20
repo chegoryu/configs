@@ -70,6 +70,8 @@ keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<CR>")
 keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<CR>")
 -- List available help tags.
 keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<CR>")
+-- Find template (from template.nvim plugin).
+keymap.set("n", "<leader>ft", "<cmd>Telescope find_template type=insert<CR>")
 
 -- Git commands.
 

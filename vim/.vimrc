@@ -1,3 +1,4 @@
+colorscheme habamax
 syntax on
 
 set showtabline=2
@@ -8,7 +9,6 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set autoindent
-set smartindent
 
 set ignorecase
 set smartcase
@@ -16,6 +16,8 @@ set smartcase
 set list
 set listchars=tab:‣\ ,trail:·
 set cursorline
+
+set backspace=indent,eol,start
 
 set splitright
 set splitbelow

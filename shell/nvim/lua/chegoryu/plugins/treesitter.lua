@@ -41,6 +41,7 @@ treesitter.setup({
         "json",
         "yaml",
 
+        "latex",
         "markdown",
         "markdown_inline",
 

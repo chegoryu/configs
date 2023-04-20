@@ -78,6 +78,12 @@ lspconfig["cmake"].setup({
     on_attach = on_attach,
 })
 
+-- Configure cmake server.
+lspconfig["pylsp"].setup({
+    capabilities = capabilities,
+    on_attach = on_attach,
+})
+
 -- Configure lua server.
 lspconfig["lua_ls"].setup({
     capabilities = capabilities,

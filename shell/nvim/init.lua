@@ -1,8 +1,8 @@
 require("chegoryu.plugins-setup")
 
 require("chegoryu.core.colorscheme")
+require("chegoryu.core.filetype-options")
 require("chegoryu.core.keymaps")
-require("chegoryu.core.make-and-run")
 require("chegoryu.core.options")
 
 require("chegoryu.plugins.autopairs")

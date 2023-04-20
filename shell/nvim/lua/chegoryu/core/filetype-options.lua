@@ -10,6 +10,10 @@ local filetype_options = api.nvim_create_augroup("FiletypeOptions", {
     clear = true,
 })
 
+--------------------------------------------------------------------------------
+-- Terminal and shell scripts.
+--------------------------------------------------------------------------------
+
 api.nvim_create_autocmd("TermOpen", {
     group = filetype_options,
     callback = function()
@@ -26,6 +30,22 @@ api.nvim_create_autocmd("TermOpen", {
 
 api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
     pattern = {
+        "*.bash",
+        "*.sh",
+        "*.zsh",
+    },
+    group = filetype_options,
+    callback = function()
+        keymap.set("n", "<F5>", get_run_command("bash $(realpath %)"), { buffer = true })
+    end,
+})
+
+--------------------------------------------------------------------------------
+-- C and C++.
+--------------------------------------------------------------------------------
+
+api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+    pattern = {
         "*.c",
         "*.h",
 
@@ -34,11 +54,37 @@ api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
     },
     group = filetype_options,
     callback = function()
-        opt.makeprg = "g++ -DCHEGORYU -Wall -Wextra -std=c++20 -O2 -o %< %"
         keymap.set("n", "<F5>", get_run_command("$(realpath %<)"), { buffer = true })
         keymap.set("n", "<F9>", ":make<CR>", { buffer = true })
     end,
 })
+
+api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+    pattern = {
+        "*.h",
+
+        "*.cpp",
+        "*.hpp",
+    },
+    group = filetype_options,
+    callback = function()
+        opt.makeprg = "g++ -DCHEGORYU -Wall -Wextra -std=c++20 -O2 -o %< %"
+    end,
+})
+
+api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+    pattern = {
+        "*.c",
+    },
+    group = filetype_options,
+    callback = function()
+        opt.makeprg = "gcc -DCHEGORYU -Wall -Wextra -std=c2x -O2 -o %< %"
+    end,
+})
+
+--------------------------------------------------------------------------------
+-- Python.
+--------------------------------------------------------------------------------
 
 api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
     pattern = {
@@ -49,6 +95,10 @@ api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
         keymap.set("n", "<F5>", get_run_command("python3 $(realpath %)"), { buffer = true })
     end,
 })
+
+--------------------------------------------------------------------------------
+-- Go.
+--------------------------------------------------------------------------------
 
 api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
     pattern = {
@@ -61,17 +111,5 @@ api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
         opt.makeprg = "go build -o %< %"
         keymap.set("n", "<F5>", get_run_command("$(realpath %<)"), { buffer = true })
         keymap.set("n", "<F9>", ":make<CR>", { buffer = true })
-    end,
-})
-
-api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
-    pattern = {
-        "*.bash",
-        "*.sh",
-        "*.zsh",
-    },
-    group = filetype_options,
-    callback = function()
-        keymap.set("n", "<F5>", get_run_command("bash $(realpath %)"), { buffer = true })
     end,
 })

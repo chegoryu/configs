@@ -4,6 +4,32 @@ CompileFlags:
   - -Wall
   - -Wextra
 
+Diagnostics:
+  ClangTidy:
+    Add:
+    - bugprone-*
+    - performance-implicit-conversion-in-loop
+    - readability-identifier-naming
+    Remove:
+    - bugprone-narrowing-conversions
+
+    CheckOptions:
+      # Do not tide public begin, end, etc methods to workaround clang-tidy bug in range-based for loops.
+      readability-identifier-naming.PublicMethodIgnoredRegexp: "(begin|end|empty|size|ysize|front|back)"
+
+      readability-identifier-naming.FunctionCase: CamelCase
+
+      readability-identifier-naming.MacroDefinitionCase: UPPER_CASE
+
+      readability-identifier-naming.ClassCase: CamelCase
+      readability-identifier-naming.ClassMethodCase: CamelCase
+      readability-identifier-naming.PublicMemberCase: CamelCase
+
+      readability-identifier-naming.ProtectedMemberCase: CamelCase
+      readability-identifier-naming.ProtectedMemberSuffix: _
+      readability-identifier-naming.PrivateMemberCase: CamelCase
+      readability-identifier-naming.PrivateMemberSuffix: _
+
 ---
 If:
   PathExclude: .*\.c

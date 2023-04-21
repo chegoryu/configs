@@ -158,7 +158,12 @@ return packer.startup(function(use)
     --------------------------------------------------------------------------------
 
     -- Configure formatters & linters.
-    use("jose-elias-alvarez/null-ls.nvim")
+    use({
+        "jose-elias-alvarez/null-ls.nvim",
+        requires = {
+            { "nvim-lua/plenary.nvim" },
+        },
+    })
 
     -- Bridges gap b/w mason & null-ls.
     use("jayp0521/mason-null-ls.nvim")

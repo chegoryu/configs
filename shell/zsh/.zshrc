@@ -112,6 +112,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias g++="g++-12"
+alias gcc="gcc-12"
 
 alias arc="git"
 

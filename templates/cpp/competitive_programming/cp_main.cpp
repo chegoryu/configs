@@ -57,7 +57,7 @@ ll MyRand(ll n) {
 
 ////////////////////////////////////////////////////////////////////////////////
 
-void solve();
+void Solve();
 
 int main() {
     StartTime = clock();
@@ -82,6 +82,6 @@ int main() {
 [[maybe_unused]] constexpr int MOD = 1000 * 1000 * 1000 + 7;
 
 
-void solve() {
+void Solve() {
     {{_cursor_}}
 }

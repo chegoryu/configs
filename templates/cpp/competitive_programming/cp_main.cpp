@@ -70,7 +70,7 @@ int main() {
     // freopen("", "w", stdout);
 #endif
 
-    solve();
+    Solve();
 
     return 0;
 }

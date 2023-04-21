@@ -13,14 +13,14 @@ local keymap = vim.keymap
 -- Enable keybinds only for when lsp server available.
 local on_attach = function(client, bufnr)
     -- Keybind options.
-    local opts = { noremap = true, silent = true, buffer = bufnr }
+    local opts = { silent = true, buffer = bufnr }
 
     -- Set keybinds.
 
     -- Show definition, references.
     keymap.set("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", opts)
     -- Got to declaration.
-    keymap.set("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts)
+    keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
     -- See definition and make edits in window.
     keymap.set("n", "gd", "<cmd>Lspsaga peek_definition<CR>", opts)
     -- Go to implementation.

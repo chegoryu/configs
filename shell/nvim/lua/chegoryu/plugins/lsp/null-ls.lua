@@ -41,7 +41,7 @@ null_ls.setup({
                 })
             end
 
-            vim.keymap.set("n", "<leader>cf", format_code)
+            vim.keymap.set("n", "<leader>cf", format_code, { silent = true, buffer = bufnr })
 
             if not is_autoformatting_disabled(vim.fn.getbufvar(bufnr, "&filetype")) then
                 vim.api.nvim_clear_autocmds({

@@ -7,13 +7,13 @@ local formatting = null_ls.builtins.formatting
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
-local function is_autoformatting_disabled(filetype)
-    local bad_filetypes = {
-        "go",
+local function is_autoformatting_enabled(filetype)
+    local filetype_whitelist = {
+        "lua",
     }
 
-    for _, bad_filetype in pairs(bad_filetypes) do
-        if filetype == bad_filetype then
+    for _, filetype_from_whitelist in pairs(filetype_whitelist) do
+        if filetype == filetype_from_whitelist then
             return true
         end
     end
@@ -43,7 +43,7 @@ null_ls.setup({
 
             vim.keymap.set("n", "<leader>cf", format_code, { silent = true, buffer = bufnr })
 
-            if not is_autoformatting_disabled(vim.fn.getbufvar(bufnr, "&filetype")) then
+            if is_autoformatting_enabled(vim.fn.getbufvar(bufnr, "&filetype")) then
                 vim.api.nvim_clear_autocmds({
                     group = augroup,
                     buffer = bufnr,

@@ -113,3 +113,19 @@ api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
         keymap.set("n", "<F9>", ":make<CR>", { buffer = true })
     end,
 })
+
+--------------------------------------------------------------------------------
+-- Rust.
+--------------------------------------------------------------------------------
+
+api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+    pattern = {
+        "*.rs",
+    },
+    group = filetype_options,
+    callback = function()
+        opt.makeprg = "cargo build --release"
+        keymap.set("n", "<F5>", get_run_command("cargo run --release"), { buffer = true })
+        keymap.set("n", "<F9>", ":make!<CR>", { buffer = true })
+    end,
+})

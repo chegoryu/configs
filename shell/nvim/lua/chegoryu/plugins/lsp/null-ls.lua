@@ -26,9 +26,14 @@ null_ls.setup({
         formatting.gofmt,
 
         formatting.stylua,
+
+        formatting.rustfmt.with({
+            extra_args = {
+                "--edition=2021",
+            },
+        }),
     },
 
-    -- Configure format on save.
     on_attach = function(current_client, bufnr)
         if current_client.supports_method("textDocument/formatting") then
             local function format_code()
@@ -43,6 +48,7 @@ null_ls.setup({
 
             vim.keymap.set("n", "<leader>cf", format_code, { silent = true, buffer = bufnr })
 
+            -- Configure format on save.
             if is_autoformatting_enabled(vim.fn.getbufvar(bufnr, "&filetype")) then
                 vim.api.nvim_clear_autocmds({
                     group = augroup,

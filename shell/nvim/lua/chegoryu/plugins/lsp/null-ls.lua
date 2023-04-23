@@ -25,13 +25,15 @@ null_ls.setup({
     sources = {
         formatting.gofmt,
 
-        formatting.stylua,
-
         formatting.rustfmt.with({
             extra_args = {
                 "--edition=2021",
             },
         }),
+
+        formatting.stylua,
+
+        formatting.csharpier,
     },
 
     on_attach = function(current_client, bufnr)

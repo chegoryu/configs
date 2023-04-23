@@ -18,18 +18,31 @@ mason.setup()
 mason_lspconfig.setup({
     -- List of servers for mason to install.
     ensure_installed = {
+        -- C/C++
         "clangd",
+
+        -- CMake.
         "cmake",
 
+        -- Python.
         "pylsp",
 
+        -- Go.
         "gopls",
 
+        -- Rust.
         "rust_analyzer",
 
+        -- Lua.
         "lua_ls",
 
+        -- C#.
+        "omnisharp",
+
+        -- Java.
         "jdtls",
+
+        -- Kotlin.
         "kotlin_language_server",
     },
     -- Auto-install configured servers (with lspconfig).

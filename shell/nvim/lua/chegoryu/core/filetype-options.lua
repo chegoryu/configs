@@ -129,3 +129,19 @@ api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
         keymap.set("n", "<F9>", ":make!<CR>", { buffer = true })
     end,
 })
+
+--------------------------------------------------------------------------------
+-- C#.
+--------------------------------------------------------------------------------
+
+api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+    pattern = {
+        "*.cs",
+    },
+    group = filetype_options,
+    callback = function()
+        opt.makeprg = "mcs -optimize -out:%< %"
+        keymap.set("n", "<F5>", get_run_command("mono $(realpath %<)"), { buffer = true })
+        keymap.set("n", "<F9>", ":make<CR>", { buffer = true })
+    end,
+})

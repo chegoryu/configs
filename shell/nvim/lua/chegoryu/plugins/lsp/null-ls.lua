@@ -34,6 +34,8 @@ null_ls.setup({
         formatting.stylua,
 
         formatting.csharpier,
+
+        formatting.ktlint,
     },
 
     on_attach = function(current_client, bufnr)
@@ -45,6 +47,7 @@ null_ls.setup({
                         return client.name == "null-ls"
                     end,
                     bufnr = bufnr,
+                    timeout_ms = 30000,
                 })
             end
 

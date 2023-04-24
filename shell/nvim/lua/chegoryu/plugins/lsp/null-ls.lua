@@ -39,18 +39,18 @@ null_ls.setup({
     },
 
     on_attach = function(current_client, bufnr)
-        if current_client.supports_method("textDocument/formatting") then
-            local function format_code()
-                vim.lsp.buf.format({
-                    filter = function(client)
-                        -- Only use null-ls for formatting instead of lsp server.
-                        return client.name == "null-ls"
-                    end,
-                    bufnr = bufnr,
-                    timeout_ms = 30000,
-                })
-            end
+        local function format_code()
+            vim.lsp.buf.format({
+                filter = function(client)
+                    -- Only use null-ls for formatting instead of lsp server.
+                    return client.name == "null-ls"
+                end,
+                bufnr = bufnr,
+                timeout_ms = 30000,
+            })
+        end
 
+        if current_client.supports_method("textDocument/formatting") then
             vim.keymap.set("n", "<leader>cf", format_code, { silent = true, buffer = bufnr })
 
             -- Configure format on save.
@@ -65,6 +65,10 @@ null_ls.setup({
                     callback = format_code,
                 })
             end
+        end
+
+        if current_client.supports_method("textDocument/rangeFormatting") then
+            vim.keymap.set("v", "<leader>cf", format_code, { silent = true, buffer = bufnr })
         end
     end,
 })

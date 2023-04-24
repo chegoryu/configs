@@ -41,6 +41,7 @@ opt.smartcase = true
 
 opt.list = true
 opt.listchars:append({
+    tab = "‣‣",
     trail = "·",
 })
 opt.cursorline = true

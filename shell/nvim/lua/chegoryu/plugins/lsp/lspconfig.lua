@@ -125,3 +125,12 @@ lspconfig["omnisharp"].setup({
     capabilities = capabilities,
     on_attach = on_attach,
 })
+
+-- Configure java server.
+lspconfig["jdtls"].setup({
+    cmd = {
+        "jdtls",
+    },
+    capabilities = capabilities,
+    on_attach = on_attach,
+})

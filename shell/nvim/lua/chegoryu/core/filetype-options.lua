@@ -124,8 +124,8 @@ api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
     },
     group = filetype_options,
     callback = function()
-        opt.makeprg = "cargo build --release"
-        keymap.set("n", "<F5>", get_run_command("cargo run --release"), { buffer = true })
+        opt.makeprg = "rustc -O -o %< %"
+        keymap.set("n", "<F5>", get_run_command("$(realpath %<)"), { buffer = true })
         keymap.set("n", "<F9>", ":make!<CR>", { buffer = true })
     end,
 })

@@ -2,7 +2,7 @@ server {
     root /var/www/chprog.com/html;
     index index.html;
 
-    server_name chprog.com;
+    server_name chprog.com, *.chprog.com;
 
     return 403;
 
@@ -49,60 +49,9 @@ server {
 }
 
 server {
-    if ($host = chprog.com) {
-        return 301 https://$host$request_uri;
-    } # managed by Certbot
-
-
     listen 80;
     listen [::]:80;
 
-    server_name chprog.com;
-
-    return 404; # managed by Certbot
-}
-
-server {
-    if ($host = www.chprog.com) {
-        return 301 https://$host$request_uri;
-    } # managed by Certbot
-
-
-    listen 80;
-    listen [::]:80;
-
-    server_name www.chprog.com;
-
-    return 404; # managed by Certbot
-}
-
-server {
-    if ($host = files.chprog.com) {
-        return 301 https://$host$request_uri;
-    } # managed by Certbot
-
-
-    listen 80;
-    listen [::]:80;
-
-    server_name files.chprog.com;
-
-    return 404; # managed by Certbot
-}
-
-
-server {
-    listen 443;
-    listen [::]:443;
-
-    server_name *.chprog.com;
-    return 301 http://$host$request_uri;
-}
-
-server {
-    listen 80;
-    listen [::]:80;
-
-    server_name *.chprog.com;
-    return 403;
+    server_name chprog.com *.chprog.com;
+    return 301 https://$host$request_uri;
 }

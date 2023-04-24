@@ -1,0 +1,4 @@
+[build]
+rustflags = "--cfg chegoryu"
+
+{{_cursor_}}

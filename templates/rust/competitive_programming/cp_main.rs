@@ -90,8 +90,7 @@ mod scanner {
 }
 
 fn main() {
-    let (stdin, mut stdout) = (fastio::get_in(), fastio::get_out());
-    solve(scanner::Scanner::new(stdin), &mut stdout);
+    solve(scanner::Scanner::new(fastio::get_in()), fastio::get_out());
 }
 
 use std::io::{BufRead, Write};
@@ -103,7 +102,7 @@ const LLINF: i64 = (1i64 << 60) + 5;
 #[allow(dead_code)]
 const MOD: i32 = 1000 * 1000 * 1000 + 7;
 
-pub fn solve<R: BufRead, W: Write>(mut scanner: scanner::Scanner<R>, out: &mut W) {
+pub fn solve<R: BufRead, W: Write>(mut scanner: scanner::Scanner<R>, mut out: W) {
     #[allow(unused_macros)]
     macro_rules! puts {($($format:tt)*) => (let _ = writeln!(out, $($format)*););}
 

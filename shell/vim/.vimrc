@@ -42,13 +42,13 @@ augroup vimrc
 
     autocmd BufNewFile *.cpp,*.go,*.rs,*.c,*.cs,*.java,*.kt,*.py %s/{{_cursor_}}//g
 
-    autocmd BufNewFile *.sh,*bash,*zsh 0r ~/.templates/bash/empty.sh.tpl
-    autocmd BufNewFile *.sh,*.bash,*zsh %s/#;; bash\n//g
-    autocmd BufNewFile *.sh,*.bash,*zsh %s/{{_cursor_}}//g
+    autocmd BufNewFile *.sh,*.bash,*.zsh 0r ~/.templates/bash/empty.sh.tpl
+    autocmd BufNewFile *.sh,*.bash,*.zsh %s/#;; bash\n//g
+    autocmd BufNewFile *.sh,*.bash,*.zsh %s/{{_cursor_}}//g
 
-    autocmd BufEnter,BufWinEnter *.cpp setlocal makeprg=g++\ -DCH_EGOR\ -Wall\ -Wextra\ -std=c++20\ -O2\ -o\ %<\ %<.cpp
+    autocmd BufEnter,BufWinEnter *.cpp setlocal makeprg=g++\ -DCHEGORYU\ -Wall\ -Wextra\ -std=c++20\ -O2\ -o\ %<\ %
     autocmd BufEnter,BufWinEnter *.cpp nnoremap <buffer> <F9> :make<CR>
-    autocmd BufEnter,BufWinEnter *.cpp nnoremap <buffer> <F5> :!time ./"%<"<CR>
+    autocmd BufEnter,BufWinEnter *.cpp nnoremap <buffer> <F5> :!time $(realpath %<)<CR>
 
     autocmd BufEnter,BufWinEnter *.go setlocal noexpandtab
 augroup END

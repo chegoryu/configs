@@ -14,7 +14,7 @@ set ignorecase
 set smartcase
 
 set list
-set listchars=tab:‣\ ,trail:·
+set listchars=tab:‣‣,trail:·
 set cursorline
 
 set backspace=indent,eol,start
@@ -25,10 +25,11 @@ set splitbelow
 set mouse=a
 set viminfo='100,<1000,s100,h
 
-nnoremap <F9> :set makeprg=g++\ -DCH_EGOR\ -Wall\ -Wextra\ -std=c++20\ -O2\ -o\ %<\ %<.cpp<CR>:make<CR>
-nnoremap <F5> :!time ./"%<"<CR>
-
 augroup vimrc
+    autocmd BufRead,BufWritePre,FileWritePre * silent! %s/\s\+$//e
+    autocmd BufRead,BufWritePre,FileWritePre * silent! %s/\%^\n\+//
+    autocmd BufRead,BufWritePre,FileWritePre * silent! %s/\($\n\s*\)\+\%$//
+
     autocmd BufNewFile *.cpp 0r ~/.templates/cpp/competitive_programming/cp_main.cpp
     autocmd BufNewFile *.go 0r ~/.templates/go/competitive_programming/cp_main.go
     autocmd BufNewFile *.rs 0r ~/.templates/rust/competitive_programming/cp_main.rs
@@ -41,5 +42,13 @@ augroup vimrc
 
     autocmd BufNewFile *.cpp,*.go,*.rs,*.c,*.cs,*.java,*.kt,*.py %s/{{_cursor_}}//g
 
-    autocmd BufRead,BufWritePre,FileWritePre * silent! %s/[\r \t]\+$//
+    autocmd BufNewFile *.sh,*bash,*zsh 0r ~/.templates/bash/empty.sh.tpl
+    autocmd BufNewFile *.sh,*.bash,*zsh %s/#;; bash\n//g
+    autocmd BufNewFile *.sh,*.bash,*zsh %s/{{_cursor_}}//g
+
+    autocmd BufEnter,BufWinEnter *.cpp setlocal makeprg=g++\ -DCH_EGOR\ -Wall\ -Wextra\ -std=c++20\ -O2\ -o\ %<\ %<.cpp
+    autocmd BufEnter,BufWinEnter *.cpp nnoremap <buffer> <F9> :make<CR>
+    autocmd BufEnter,BufWinEnter *.cpp nnoremap <buffer> <F5> :!time ./"%<"<CR>
+
+    autocmd BufEnter,BufWinEnter *.go setlocal noexpandtab
 augroup END

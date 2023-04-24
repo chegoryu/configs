@@ -40,7 +40,7 @@ using ld = long double;
 
 clock_t StartTime = 0;
 double GetCurrentTime() {
-	return (ld)(clock() - StartTime) / CLOCKS_PER_SEC;
+    return (ld)(clock() - StartTime) / CLOCKS_PER_SEC;
 }
 
 ////////////////////////////////////////////////////////////////////////////////

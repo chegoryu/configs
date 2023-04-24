@@ -134,3 +134,9 @@ lspconfig["jdtls"].setup({
     capabilities = capabilities,
     on_attach = on_attach,
 })
+
+-- Configure kotlin server.
+lspconfig["kotlin_language_server"].setup({
+    capabilities = capabilities,
+    on_attach = on_attach,
+})

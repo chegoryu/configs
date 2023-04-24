@@ -162,3 +162,19 @@ api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
         keymap.set("n", "<F9>", ":make<CR>", { buffer = true })
     end,
 })
+
+--------------------------------------------------------------------------------
+-- Kotlin.
+--------------------------------------------------------------------------------
+
+api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+    pattern = {
+        "*.kt",
+    },
+    group = filetype_options,
+    callback = function()
+        opt.makeprg = "kotlinc -include-runtime -d %<.jar %"
+        keymap.set("n", "<F5>", get_run_command("java -jar $(realpath %<.jar)"), { buffer = true })
+        keymap.set("n", "<F9>", ":make<CR>", { buffer = true })
+    end,
+})

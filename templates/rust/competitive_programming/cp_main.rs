@@ -106,5 +106,5 @@ pub fn solve<R: BufRead, W: Write>(mut scanner: scanner::Scanner<R>, mut out: W)
     #[allow(unused_macros)]
     macro_rules! puts {($($format:tt)*) => (let _ = writeln!(out, $($format)*););}
 
-	{{_cursor_}}
+    {{_cursor_}}
 }

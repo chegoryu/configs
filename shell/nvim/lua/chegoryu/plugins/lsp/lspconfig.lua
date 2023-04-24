@@ -129,7 +129,7 @@ lspconfig["omnisharp"].setup({
 -- Configure java server.
 lspconfig["jdtls"].setup({
     cmd = {
-        "jdtls",
+        "/usr/local/bin/jdtls",
     },
     capabilities = capabilities,
     on_attach = on_attach,

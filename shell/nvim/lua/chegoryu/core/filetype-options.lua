@@ -145,3 +145,20 @@ api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
         keymap.set("n", "<F9>", ":make<CR>", { buffer = true })
     end,
 })
+
+--------------------------------------------------------------------------------
+-- Java.
+--------------------------------------------------------------------------------
+
+api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+    pattern = {
+        "*.java",
+    },
+    group = filetype_options,
+    callback = function()
+        opt.makeprg =
+            "javac % && jar -c -v -f %<.jar -e $(basename %<) -C $(dirname $(realpath %<.class)) $(basename %<.class)"
+        keymap.set("n", "<F5>", get_run_command("java -jar $(realpath %<.jar)"), { buffer = true })
+        keymap.set("n", "<F9>", ":make<CR>", { buffer = true })
+    end,
+})

@@ -156,7 +156,13 @@ api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
     },
     group = filetype_options,
     callback = function()
-        opt.makeprg = "javac % && jar -c -f %<.jar -e $(basename %<) -C $(dirname $(realpath %)) *.class"
+        opt.makeprg = "source_file=$(realpath %) && "
+            .. "class_name=$(basename %<) && "
+            .. "mkdir -p $(dirname $source_file)/classes/$class_name && "
+            .. "cd $(dirname $source_file)/classes/$class_name && "
+            .. "javac $source_file -d . && "
+            .. "jar -c -f ../../$class_name.jar -e $class_name *.class"
+
         keymap.set("n", "<F5>", get_run_command("java -jar $(realpath %<.jar)"), { buffer = true })
         keymap.set("n", "<F9>", ":make<CR>", { buffer = true })
     end,

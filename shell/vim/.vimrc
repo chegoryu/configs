@@ -1,29 +1,90 @@
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" General options.
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Scheme and syntax.
 colorscheme habamax
 syntax on
 
+" Tabline.
 set showtabline=2
 
+" Line number.
 set number
 
+" Tabs & indentation.
 set tabstop=4
 set shiftwidth=4
 set expandtab
 set autoindent
 
+" Line wrapping.
+set nowrap
+
+" Search settings.
 set ignorecase
 set smartcase
 
+" Appearance.
 set list
 set listchars=tab:‣‣,trail:·
 set cursorline
+set hlsearch
 
+" Allow backspace on indent, end of line or insert mode start position.
 set backspace=indent,eol,start
 
+" Windows splitting.
 set splitright
 set splitbelow
 
+" Mouse.
 set mouse=a
+
+" Buffer size.
 set viminfo='100,<1000,s100,h
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" General keymaps.
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Set leader key to space.
+let mapleader=" "
+
+" Use jk to exit insert mode.
+inoremap jk <ESC>
+
+" Clear search highlights.
+nnoremap <leader>nh :nohl<CR>
+
+" Delete single character without copying into register.
+nnoremap x "_x"
+
+" Increment/decrement numbers.
+nnoremap <leader>+ <C-a>
+nnoremap <leader>- <C-x>
+
+" Split window vertically.
+nnoremap <leader>sv <C-w>v
+" Split window horizontally.
+nnoremap <leader>sh <C-w>s
+" Make split windows equal width & height.
+nnoremap <leader>se <C-w>=
+" Close current split window.
+nnoremap <leader>sx :close<CR>
+
+" Open new tab.
+nnoremap <leader>to :tabnew<CR>
+" Close current tab.
+nnoremap <leader>tx :tabclose<CR>
+" Go to next tab.
+nnoremap <leader>tn :tabn<CR>
+" Go to previous tab.
+nnoremap <leader>tp :tabp<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Filetype options.
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 augroup vimrc
     """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -92,7 +153,7 @@ augroup vimrc
     autocmd BufEnter,BufWinEnter *.rs nnoremap <buffer> <F9> :make!<CR>
 
     """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-    " Filetype options.
+    " Special options.
     """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
     autocmd BufEnter,BufWinEnter *.go setlocal noexpandtab

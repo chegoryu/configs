@@ -84,10 +84,13 @@ zstyle :omz:plugins:ssh-agent quiet yes
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git ssh-agent gpg-agent zsh-autosuggestions zsh-syntax-highlighting)
 
+# History
+export HISTSIZE=100000
+export SAVEHIST=$HISTSIZE
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-HISTSIZE=100000
 
 # export MANPATH="/usr/local/man:$MANPATH"
 

@@ -46,9 +46,27 @@ augroup vimrc
     autocmd BufNewFile *.sh,*.bash,*.zsh %s/#;; bash\n//g
     autocmd BufNewFile *.sh,*.bash,*.zsh %s/{{_cursor_}}//g
 
-    autocmd BufEnter,BufWinEnter *.cpp setlocal makeprg=g++\ -DCHEGORYU\ -Wall\ -Wextra\ -std=c++20\ -O2\ -o\ %<\ %
-    autocmd BufEnter,BufWinEnter *.cpp nnoremap <buffer> <F9> :make<CR>
-    autocmd BufEnter,BufWinEnter *.cpp nnoremap <buffer> <F5> :!time $(realpath %<)<CR>
+
+    autocmd BufEnter,BufWinEnter *.c setlocal makeprg=gcc\ -DCHEGORYU\ -Wall\ -Wextra\ -std=c2x\ -O2\ -o\ %<\ %
+    autocmd BufEnter,BufWinEnter *.h,*.cpp,*.hpp setlocal makeprg=g++\ -DCHEGORYU\ -Wall\ -Wextra\ -std=c++20\ -O2\ -o\ %<\ %
+
+    autocmd BufEnter,BufWinEnter *.cs setlocal makeprg=mcs\ -optimize\ -out:%<\ %
+    autocmd BufEnter,BufWinEnter *.go setlocal makeprg=go\ build\ -o\ %<\ %
+    autocmd BufEnter,BufWinEnter *.java setlocal makeprg=javac\ %\ &&\ jar\ -c\ -f\ %<.jar\ -e\ $(basename\ %<)\ -C\ $(dirname\ $(realpath\ %<.class))\ $(basename\ %<.class)
+    autocmd BufEnter,BufWinEnter *.kt setlocal makeprg=kotlinc\ -include-runtime\ -d\ %<.jar\ %
+    autocmd BufEnter,BufWinEnter *.rs setlocal makeprg=rustc\ --cfg\ chegoryu\ -O\ -o\ %<\ %
+
+
+    autocmd BufEnter,BufWinEnter *.c,*.h,*.cpp,*.hpp,*.go,*.rs nnoremap <buffer> <F5> :!time $(realpath %<)<CR>
+    autocmd BufEnter,BufWinEnter *.cs nnoremap <buffer> <F5> :!time mono $(realpath %<)<CR>
+    autocmd BufEnter,BufWinEnter *.java,*.kt nnoremap <buffer> <F5> :!time java -jar $(realpath %<.jar)<CR>
+    autocmd BufEnter,BufWinEnter *.py nnoremap <buffer> <F5> :!time python3 $(realpath %)<CR>
+    autocmd BufEnter,BufWinEnter *.sh,*.bash,*.zsh nnoremap <buffer> <F5> :!time bash $(realpath %)<CR>
+
+
+    autocmd BufEnter,BufWinEnter *.c,*.h,*.cpp,*.hpp,*.cs,*.go,*.java,*.kt nnoremap <buffer> <F9> :make<CR>
+    autocmd BufEnter,BufWinEnter *.rs nnoremap <buffer> <F9> :make!<CR>
+
 
     autocmd BufEnter,BufWinEnter *.go setlocal noexpandtab
 augroup END

@@ -81,7 +81,6 @@ int main() {
 [[maybe_unused]] constexpr ll LLINF = (1ll << 60) + 5;
 [[maybe_unused]] constexpr int MOD = 1000 * 1000 * 1000 + 7;
 
-
 void Solve() {
     {{_cursor_}}
 }

@@ -156,8 +156,7 @@ api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
     },
     group = filetype_options,
     callback = function()
-        opt.makeprg =
-            "javac % && jar -c -f %<.jar -e $(basename %<) -C $(dirname $(realpath %<.class)) $(basename %<.class)"
+        opt.makeprg = "javac % && jar -c -f %<.jar -e $(basename %<) -C $(dirname $(realpath %)) *.class"
         keymap.set("n", "<F5>", get_run_command("java -jar $(realpath %<.jar)"), { buffer = true })
         keymap.set("n", "<F9>", ":make<CR>", { buffer = true })
     end,

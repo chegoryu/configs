@@ -44,15 +44,16 @@ augroup vimrc
 
     autocmd BufNewFile *.c 0r ~/.templates/c/empty.c
     autocmd BufNewFile *.cs 0r ~/.templates/csharp/empty.cs
-    autocmd BufNewFile *.java 0r ~/.templates/java/empty.java
     autocmd BufNewFile *.kt 0r ~/.templates/kotlin/empty.kt
     autocmd BufNewFile *.py 0r ~/.templates/python/empty.py
 
-    autocmd BufNewFile *.cpp,*.go,*.rs,*.c,*.cs,*.java,*.kt,*.py %s/{{_cursor_}}//g
+    autocmd BufNewFile *.java 0r ~/.templates/java/empty.java
+    autocmd BufNewFile *.java %s/{{_file_name_}}/\=expand("%:t:r")/g
 
-    autocmd BufNewFile *.sh,*.bash,*.zsh 0r ~/.templates/bash/empty.sh.tpl
-    autocmd BufNewFile *.sh,*.bash,*.zsh %s/#;; bash\n//g
-    autocmd BufNewFile *.sh,*.bash,*.zsh %s/{{_cursor_}}//g
+    autocmd BufNewFile *.bash,*.sh,*.zsh 0r ~/.templates/bash/empty.sh.tpl
+    autocmd BufNewFile *.bash,*.sh,*.zsh %s/#;; bash\n//g
+
+    autocmd BufNewFile *.bash,*.c,*.cpp,*.cs,*.go,*.java,*.kt,*.py,*.rs,*.sh,*.zsh %s/{{_cursor_}}//g
 
     """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     " Make commands.
@@ -75,7 +76,7 @@ augroup vimrc
     autocmd BufEnter,BufWinEnter *.cs nnoremap <buffer> <F5> :!time mono $(realpath %<)<CR>
     autocmd BufEnter,BufWinEnter *.java,*.kt nnoremap <buffer> <F5> :!time java -jar $(realpath %<.jar)<CR>
     autocmd BufEnter,BufWinEnter *.py nnoremap <buffer> <F5> :!time python3 $(realpath %)<CR>
-    autocmd BufEnter,BufWinEnter *.sh,*.bash,*.zsh nnoremap <buffer> <F5> :!time bash $(realpath %)<CR>
+    autocmd BufEnter,BufWinEnter *.bash,*.sh,*.zsh nnoremap <buffer> <F5> :!time bash $(realpath %)<CR>
 
     """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     " Make keymaps.

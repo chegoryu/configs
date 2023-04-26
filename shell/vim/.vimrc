@@ -64,9 +64,15 @@ augroup vimrc
 
     autocmd BufEnter,BufWinEnter *.cs setlocal makeprg=mcs\ -optimize\ -out:%<\ %
     autocmd BufEnter,BufWinEnter *.go setlocal makeprg=go\ build\ -o\ %<\ %
-    autocmd BufEnter,BufWinEnter *.java setlocal makeprg=javac\ %\ &&\ jar\ -c\ -f\ %<.jar\ -e\ $(basename\ %<)\ -C\ $(dirname\ $(realpath\ %))\ *.class
     autocmd BufEnter,BufWinEnter *.kt setlocal makeprg=kotlinc\ -include-runtime\ -d\ %<.jar\ %
     autocmd BufEnter,BufWinEnter *.rs setlocal makeprg=rustc\ --cfg\ chegoryu\ -O\ -o\ %<\ %
+
+    autocmd BufEnter,BufWinEnter *.java setlocal makeprg=source_file=$(realpath\ %)\ &&\
+        \ class_name=$(basename\ %<)\ &&\
+        \ mkdir\ -p\ $(dirname\ $source_file)/classes/$class_name\ &&\
+        \ cd\ $(dirname\ $source_file)/classes/$class_name\ &&\
+        \ javac\ $source_file\ -d\ .\ &&\
+        \ jar\ -c\ -f\ ../../$class_name.jar\ -e\ $class_name\ *.class
 
     """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     " Run keymaps.

@@ -26,9 +26,17 @@ set mouse=a
 set viminfo='100,<1000,s100,h
 
 augroup vimrc
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    " Trim whitespaces on save.
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
     autocmd BufRead,BufWritePre,FileWritePre * silent! %s/\s\+$//e
     autocmd BufRead,BufWritePre,FileWritePre * silent! %s/\%^\n\+//
     autocmd BufRead,BufWritePre,FileWritePre * silent! %s/\($\n\s*\)\+\%$//
+
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    " Templates.
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
     autocmd BufNewFile *.cpp 0r ~/.templates/cpp/competitive_programming/cp_main.cpp
     autocmd BufNewFile *.go 0r ~/.templates/go/competitive_programming/cp_main.go
@@ -46,6 +54,9 @@ augroup vimrc
     autocmd BufNewFile *.sh,*.bash,*.zsh %s/#;; bash\n//g
     autocmd BufNewFile *.sh,*.bash,*.zsh %s/{{_cursor_}}//g
 
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    " Make commands.
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
     autocmd BufEnter,BufWinEnter *.c setlocal makeprg=gcc\ -DCHEGORYU\ -Wall\ -Wextra\ -std=c2x\ -O2\ -o\ %<\ %
     autocmd BufEnter,BufWinEnter *.h,*.cpp,*.hpp setlocal makeprg=g++\ -DCHEGORYU\ -Wall\ -Wextra\ -std=c++20\ -O2\ -o\ %<\ %
@@ -56,6 +67,9 @@ augroup vimrc
     autocmd BufEnter,BufWinEnter *.kt setlocal makeprg=kotlinc\ -include-runtime\ -d\ %<.jar\ %
     autocmd BufEnter,BufWinEnter *.rs setlocal makeprg=rustc\ --cfg\ chegoryu\ -O\ -o\ %<\ %
 
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    " Run keymaps.
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
     autocmd BufEnter,BufWinEnter *.c,*.h,*.cpp,*.hpp,*.go,*.rs nnoremap <buffer> <F5> :!time $(realpath %<)<CR>
     autocmd BufEnter,BufWinEnter *.cs nnoremap <buffer> <F5> :!time mono $(realpath %<)<CR>
@@ -63,10 +77,17 @@ augroup vimrc
     autocmd BufEnter,BufWinEnter *.py nnoremap <buffer> <F5> :!time python3 $(realpath %)<CR>
     autocmd BufEnter,BufWinEnter *.sh,*.bash,*.zsh nnoremap <buffer> <F5> :!time bash $(realpath %)<CR>
 
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    " Make keymaps.
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
     autocmd BufEnter,BufWinEnter *.c,*.h,*.cpp,*.hpp,*.cs,*.go,*.java,*.kt nnoremap <buffer> <F9> :make<CR>
     autocmd BufEnter,BufWinEnter *.rs nnoremap <buffer> <F9> :make!<CR>
 
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+    " Filetype options.
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
     autocmd BufEnter,BufWinEnter *.go setlocal noexpandtab
+
 augroup END

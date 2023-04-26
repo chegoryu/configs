@@ -68,7 +68,7 @@ opt.backspace = "indent,eol,start"
 opt.clipboard:append("unnamedplus")
 
 --------------------------------------------------------------------------------
--- Split windows.
+-- Windows splitting.
 --------------------------------------------------------------------------------
 
 opt.splitright = true

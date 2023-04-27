@@ -15,7 +15,7 @@ Diagnostics:
 
     CheckOptions:
       # Do not tide public begin, end, etc methods to workaround clang-tidy bug in range-based for loops.
-      readability-identifier-naming.PublicMethodIgnoredRegexp: "(begin|end|empty|size|ysize|front|back)"
+      readability-identifier-naming.PublicMethodIgnoredRegexp: "(begin|end|empty|size|front|back)"
 
       readability-identifier-naming.FunctionCase: CamelCase
 
@@ -23,12 +23,12 @@ Diagnostics:
 
       readability-identifier-naming.ClassCase: CamelCase
       readability-identifier-naming.ClassMethodCase: CamelCase
-      readability-identifier-naming.PublicMemberCase: CamelCase
 
-      readability-identifier-naming.ProtectedMemberCase: CamelCase
-      readability-identifier-naming.ProtectedMemberSuffix: _
       readability-identifier-naming.PrivateMemberCase: CamelCase
       readability-identifier-naming.PrivateMemberSuffix: _
+      readability-identifier-naming.ProtectedMemberCase: CamelCase
+      readability-identifier-naming.ProtectedMemberSuffix: _
+      readability-identifier-naming.PublicMemberCase: CamelCase
 
 ---
 If:

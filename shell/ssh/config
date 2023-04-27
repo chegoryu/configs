@@ -7,3 +7,7 @@ Host github.com
     HostName github.com
     IdentityFile ~/.ssh/id_rsa_git
     User git
+
+Host chprog chprog.com
+    HostName chprog.com
+    User chegoryu

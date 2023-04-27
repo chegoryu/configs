@@ -1,2 +1,8 @@
+[alias]
+r = "run"
+rr = "run --release"
+cp_init = ["init", "--vcs", "none", "--bin", "--name", "main"]
+cp_new = ["new", "--vcs", "none", "--bin", "--name", "main"]
+
 [target.'cfg(any(unix, windows, wasm))']
 rustflags = ["--cfg", "chegoryu"]

@@ -87,6 +87,7 @@ readline
 ripgrep
 rust
 rustfmt
+skhd
 sqlite
 tmux
 tree-sitter
@@ -96,6 +97,7 @@ utf8proc
 wget
 xorgproto
 xz
+yabai
 zstd
 
 ################################################################################
@@ -116,6 +118,7 @@ keepassxc
 mactex
 outline-manager
 pycharm-ce
+raycast
 skype
 steam
 sublime-text

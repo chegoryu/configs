@@ -1,0 +1,45 @@
+# Default layout.
+yabai -m config layout bsp
+
+################################################################################
+# Appearance.
+################################################################################
+
+# Set padding set to 8px.
+yabai -m config top_padding 8
+yabai -m config bottom_padding 8
+yabai -m config left_padding 8
+yabai -m config right_padding 8
+yabai -m config window_gap 8
+
+################################################################################
+# Useful options.
+################################################################################
+
+# New window spawns to the right if vertical split, or bottom if horizontal split.
+yabai -m config window_placement second_child
+
+# Center mouse on window with focus.
+yabai -m config mouse_follows_focus on
+
+# When window is dropped in center of another window, swap them (on edges it will split it).
+yabai -m mouse_drop_action swap
+
+################################################################################
+# Key bindings.
+################################################################################
+
+# Modifier for clicking and dragging with mouse.
+yabai -m config mouse_modifier alt
+# Set modifier + left-click drag to move window.
+yabai -m config mouse_action1 move
+# Set modifier + right-click drag to resize window.
+yabai -m config mouse_action2 resize
+
+################################################################################
+# Apps.
+################################################################################
+
+# Disable specific apps.
+yabai -m rule --add app="^System Settings$" manage=off
+yabai -m rule --add app="^QuickTime Player$" manage=off

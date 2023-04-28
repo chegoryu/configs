@@ -4,5 +4,3 @@
 	signingkey = 1E68ACABCD6CDF6E60F724AB8658979E9E52B668
 [commit]
 	gpgsign = true
-[core]
-	excludesfile = ~/.gitignore

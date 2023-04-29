@@ -1,5 +1,5 @@
 ################################################################################
-# Changing window focus.
+# Focus.
 ################################################################################
 
 # Change window focus within space.
@@ -13,7 +13,7 @@ alt - s: yabai -m display --focus west
 alt - g: yabai -m display --focus east
 
 ################################################################################
-# Modifying the layout.
+# Layout.
 ################################################################################
 
 # Rotate layout clockwise.
@@ -29,7 +29,7 @@ shift + alt - x : yabai -m space --mirror x-axis
 shift + alt - t : yabai -m window --toggle float --grid 4:4:1:1:2:2
 
 ################################################################################
-# Modifying window size.
+# Windows size.
 ################################################################################
 
 # Maximize a window.
@@ -39,7 +39,7 @@ shift + alt - m : yabai -m window --toggle zoom-fullscreen
 shift + alt - e : yabai -m space --balance
 
 ################################################################################
-# Moving windows around.
+# Windows moving.
 ################################################################################
 
 # Swap windows.

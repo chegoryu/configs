@@ -16,8 +16,12 @@ telescope.setup({
                 ["<C-k>"] = actions.move_selection_previous,
                 -- Move to next result.
                 ["<C-j>"] = actions.move_selection_next,
+
                 -- Send selected to quickfixlist.
                 ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+
+                -- Close with one ESC (even in insert mode).
+                ["<ESC>"] = actions.close,
             },
         },
     },

@@ -89,6 +89,7 @@ rust
 rustfmt
 skhd
 sqlite
+telnet
 tmux
 tree
 tree-sitter

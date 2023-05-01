@@ -52,7 +52,6 @@ server {
     server_name reverse-proxy.chprog.com;
 
     location /junk/go/echo_server/ {
-        # rewrite /junk/go/echo_server/(.*) /$1  break;
         proxy_pass http://127.0.0.1:9001/;
 
         proxy_set_header Host $host;

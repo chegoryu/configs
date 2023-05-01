@@ -1,0 +1,8 @@
+version: "3.9"
+services:
+  junk-go-echo-server:
+    image: chegoryu/junk-go-echo-server:latest
+    container_name: junk-go-echo-server
+    ports:
+      - 9001:80
+    restart: always

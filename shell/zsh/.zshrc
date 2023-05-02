@@ -8,9 +8,11 @@ fi
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+export CARGOPATH="$HOME/.cargo"
 export DOTNETPATH="$HOME/.dotnet"
 export GOPATH="$HOME/.go"
 
+export PATH="$PATH:$CARGOPATH/bin"
 export PATH="$PATH:$DOTNETPATH/tools"
 export PATH="$PATH:$GOPATH/bin"
 

@@ -153,6 +153,9 @@ return packer.startup(function(use)
     -- Vs-code like icons for autocompletion.
     use("onsails/lspkind.nvim")
 
+    -- Extra functionality over rust analyzer.
+    use("simrat39/rust-tools.nvim")
+
     --------------------------------------------------------------------------------
     -- Formatting & linting.
     --------------------------------------------------------------------------------

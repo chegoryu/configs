@@ -4,5 +4,5 @@ services:
     image: chegoryu/junk-go-echo-server:latest
     container_name: junk-go-echo-server
     ports:
-      - 9001:80
+      - 127.0.0.1:9001:80
     restart: always

@@ -8,6 +8,11 @@ if not cmp_nvim_lsp_status then
     return
 end
 
+local rust_tools_status, rust_tools = pcall(require, "rust-tools")
+if not rust_tools_status then
+    return
+end
+
 local keymap = vim.keymap
 
 -- Enable keybinds only for when lsp server available.
@@ -91,9 +96,30 @@ lspconfig["gopls"].setup({
 })
 
 -- Configure rust server.
-lspconfig["rust_analyzer"].setup({
-    capabilities = capabilities,
-    on_attach = on_attach,
+rust_tools.setup({
+    tools = {
+        runnables = {
+            use_telescope = true,
+        },
+        inlay_hints = {
+            auto = true,
+            show_parameter_hints = false,
+            parameter_hints_prefix = "",
+            other_hints_prefix = "",
+        },
+    },
+
+    server = {
+        capabilities = capabilities,
+        on_attach = on_attach,
+        settings = {
+            ["rust-analyzer"] = {
+                checkOnSave = {
+                    command = "clippy",
+                },
+            },
+        },
+    },
 })
 
 -- Configure lua server.

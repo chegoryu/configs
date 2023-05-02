@@ -85,8 +85,7 @@ pkg-config
 python@3.11
 readline
 ripgrep
-rust
-rustfmt
+rustup-init
 skhd
 sqlite
 telnet

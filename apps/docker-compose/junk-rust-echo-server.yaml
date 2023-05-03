@@ -1,0 +1,8 @@
+version: "3.9"
+services:
+  junk-rust-echo-server:
+    image: chegoryu/junk-rust-echo-server:latest
+    container_name: junk-rust-echo-server
+    ports:
+      - 127.0.0.1:9002:80
+    restart: always

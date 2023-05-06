@@ -37,12 +37,14 @@ libassuan
 libevent
 libgcrypt
 libgpg-error
+libice
 libidn
 libidn2
 libksba
 libmpc
 libnghttp2
 libpng
+libsm
 libtasn1
 libtermkey
 libtiff
@@ -55,7 +57,9 @@ libxau
 libxcb
 libxdmcp
 libxext
+libxmu
 libxrender
+libxt
 little-cms2
 luajit
 luv
@@ -96,6 +100,7 @@ unbound
 unibilium
 utf8proc
 wget
+xclip
 xorgproto
 xz
 yabai

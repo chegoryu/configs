@@ -9,6 +9,7 @@ cairo
 cloudflared
 cmake
 coreutils
+docker
 docker-compose
 dos2unix
 fontconfig
@@ -42,10 +43,13 @@ libidn
 libidn2
 libksba
 liblinear
+libmaxminddb
 libmpc
 libnghttp2
 libpng
 libsm
+libsmi
+libssh
 libssh2
 libtasn1
 libtermkey
@@ -63,6 +67,7 @@ libxmu
 libxrender
 libxt
 little-cms2
+lua
 lua@5.3
 luajit
 luv
@@ -78,7 +83,6 @@ nettle
 nmap
 node
 npth
-omnisharp
 omnisharp-mono
 openjdk
 openjdk@17
@@ -105,6 +109,7 @@ unbound
 unibilium
 utf8proc
 wget
+wireshark
 xclip
 xorgproto
 xz

@@ -1,0 +1,6 @@
+[user]
+	name = Egor Chunaev
+	email = egor.chunaev@pinely.com
+	signingkey = 1CE7EE307D945EDAE6746E912DB4DC7B8D4F19BF
+[commit]
+	gpgsign = true

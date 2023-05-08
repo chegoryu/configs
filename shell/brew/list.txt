@@ -131,6 +131,7 @@ outline-manager
 pycharm-ce
 raycast
 skype
+slack
 steam
 sublime-text
 telegram

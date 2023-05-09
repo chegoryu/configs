@@ -23,6 +23,19 @@ end
 
 null_ls.setup({
     sources = {
+        formatting.clang_format.with({
+            filetypes = {
+                "c",
+                "cpp",
+                "c",
+                "h",
+            },
+        }),
+
+        formatting.cmake_format,
+
+        formatting.black,
+
         formatting.gofmt,
 
         formatting.rustfmt.with({

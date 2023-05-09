@@ -59,8 +59,11 @@ for type, icon in pairs(signs) do
 end
 
 -- Configure clangd server.
+local clangd_capabilities = capabilities
+clangd_capabilities.offsetEncoding = "utf-8"
+
 lspconfig["clangd"].setup({
-    capabilities = capabilities,
+    capabilities = clangd_capabilities,
     cmd = {
         "clangd",
         "--background-index",
@@ -87,6 +90,16 @@ lspconfig["cmake"].setup({
 lspconfig["pylsp"].setup({
     capabilities = capabilities,
     on_attach = on_attach,
+
+    settings = {
+        pylsp = {
+            plugins = {
+                pycodestyle = {
+                    maxLineLength = 120,
+                },
+            },
+        },
+    },
 })
 
 -- Configure go server.

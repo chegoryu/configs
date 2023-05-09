@@ -2,10 +2,12 @@
 # Formulae.
 ################################################################################
 
+black
 brotli
 c-ares
 ca-certificates
 cairo
+clang-format
 cloudflared
 cmake
 coreutils

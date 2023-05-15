@@ -34,6 +34,7 @@ isl
 jbig2dec
 jdtls
 jpeg-turbo
+jq
 kotlin
 ktlint
 libassuan
@@ -86,6 +87,7 @@ nmap
 node
 npth
 omnisharp-mono
+oniguruma
 openjdk
 openjdk@17
 openjpeg
@@ -104,6 +106,7 @@ rustup-init
 skhd
 sqlite
 telnet
+tig
 tmux
 tree
 tree-sitter

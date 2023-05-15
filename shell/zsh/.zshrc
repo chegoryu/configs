@@ -131,6 +131,8 @@ alias arc="git"
 alias g++="g++-12"
 alias gcc="gcc-12"
 
+alias jq="jq --indent 4"
+
 alias vvim="command vim"
 alias vim="nvim"
 

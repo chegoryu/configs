@@ -26,6 +26,7 @@ null_ls.setup({
     sources = {
         -- C/C++
         formatting.clang_format.with({
+            command = "clang-format-16",
             filetypes = {
                 "c",
                 "cpp",
@@ -47,11 +48,7 @@ null_ls.setup({
 
         -- Go.
         formatting.gofmt,
-        diagnostics.golangci_lint.with({
-            condition = function(utils)
-                return utils.root_has_file("go.mod")
-            end,
-        }),
+        diagnostics.golangci_lint,
 
         -- Rust.
         formatting.rustfmt.with({

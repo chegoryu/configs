@@ -54,6 +54,9 @@ api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
     },
     group = filetype_options,
     callback = function()
+        opt.tabstop = 2
+        opt.shiftwidth = 2
+
         keymap.set("n", "<F5>", get_run_command("$(realpath %<)"), { buffer = true })
         keymap.set("n", "<F9>", ":make<CR>", { buffer = true })
     end,
@@ -79,6 +82,23 @@ api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
     group = filetype_options,
     callback = function()
         opt.makeprg = "gcc -DCHEGORYU -Wall -Wextra -std=c2x -O2 -o %< %"
+    end,
+})
+
+--------------------------------------------------------------------------------
+-- CMake.
+--------------------------------------------------------------------------------
+
+api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+    pattern = {
+        "*.cmake",
+
+        "CMakeLists.txt",
+    },
+    group = filetype_options,
+    callback = function()
+        opt.tabstop = 2
+        opt.shiftwidth = 2
     end,
 })
 

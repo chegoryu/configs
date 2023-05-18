@@ -8,6 +8,11 @@ if not actions_setup then
     return
 end
 
+local live_grep_args_setup, live_grep_args = pcall(require, "telescope-live-grep-args.actions")
+if not live_grep_args_setup then
+    return
+end
+
 telescope.setup({
     defaults = {
         mappings = {
@@ -25,7 +30,20 @@ telescope.setup({
             },
         },
     },
+    extensions = {
+        live_grep_args = {
+            auto_quoting = true,
+            mappings = {
+                i = {
+                    ["<C-i>"] = live_grep_args.quote_prompt({
+                        postfix = " --iglob **/",
+                    }),
+                },
+            },
+        },
+    },
 })
 
-telescope.load_extension("fzf")
 telescope.load_extension("find_template")
+telescope.load_extension("fzf")
+telescope.load_extension("live_grep_args")

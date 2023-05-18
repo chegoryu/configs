@@ -102,8 +102,17 @@ return packer.startup(function(use)
 
     -- Dependency for better sorting performance.
     use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
+    -- Better live grep.
+    use({ "nvim-telescope/telescope-live-grep-args.nvim" })
     -- Fuzzy finder.
-    use({ "nvim-telescope/telescope.nvim", branch = "0.1.x" })
+    use({
+        "nvim-telescope/telescope.nvim",
+        branch = "0.1.x",
+        requires = {
+            { "nvim-telescope/telescope-fzf-native.nvim" },
+            { "nvim-telescope/telescope-live-grep-args.nvim" },
+        },
+    })
 
     --------------------------------------------------------------------------------
     -- Autocompletion.

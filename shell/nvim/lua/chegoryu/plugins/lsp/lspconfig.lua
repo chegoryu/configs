@@ -59,7 +59,7 @@ for type, icon in pairs(signs) do
 end
 
 -- Configure clangd server.
-local clangd_capabilities = capabilities
+local clangd_capabilities = cmp_nvim_lsp.default_capabilities()
 clangd_capabilities.offsetEncoding = "utf-8"
 
 lspconfig["clangd"].setup({

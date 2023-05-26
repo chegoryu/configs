@@ -8,6 +8,6 @@ Host github.com
     IdentityFile ~/.ssh/id_rsa_git
     User git
 
-Host chprog chprog.com
-    HostName chprog.com
+Host me chegoryu chegoryu.me
+    HostName chegoryu.me
     User chegoryu

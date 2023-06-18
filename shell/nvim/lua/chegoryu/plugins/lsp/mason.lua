@@ -18,7 +18,7 @@ mason.setup()
 mason_lspconfig.setup({
     -- List of servers for mason to install.
     ensure_installed = {
-        -- C/C++
+        -- C/C++.
         "clangd",
 
         -- CMake.

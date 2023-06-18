@@ -64,6 +64,8 @@ clangd_capabilities.offsetEncoding = "utf-8"
 
 lspconfig["clangd"].setup({
     capabilities = clangd_capabilities,
+    on_attach = on_attach,
+
     cmd = {
         "clangd",
         "--background-index",
@@ -73,29 +75,103 @@ lspconfig["clangd"].setup({
         "--pretty",
         "-j=8",
     },
-    on_attach = on_attach,
 })
 
 -- Configure cmake server.
 lspconfig["cmake"].setup({
     capabilities = capabilities,
+    on_attach = on_attach,
+
     filetypes = {
         "CMakeLists.txt",
         "cmake",
     },
-    on_attach = on_attach,
 })
 
 -- Configure python server.
-lspconfig["pylsp"].setup({
+lspconfig["pyright"].setup({
     capabilities = capabilities,
     on_attach = on_attach,
 
     settings = {
-        pylsp = {
-            plugins = {
-                pycodestyle = {
-                    maxLineLength = 120,
+        python = {
+            analysis = {
+                autoImportCompletions = true,
+                autoSearchPaths = true,
+                typeCheckingMode = "strict",
+                useLibraryCodeForTypes = true,
+
+                diagnosticSeverityOverrides = {
+                    analyzeUnannotatedFunctions = true,
+
+                    enableTypeIgnoreComments = true,
+
+                    strictDictionaryInference = true,
+                    strictListInference = true,
+                    strictParameterNoneValue = true,
+                    strictSetInference = true,
+
+                    reportAssertAlwaysTrue = "warning",
+                    reportCallInDefaultInitializer = "none",
+                    reportConstantRedefinition = "warning",
+                    reportDeprecated = "warning",
+                    reportDuplicateImport = "error",
+                    reportFunctionMemberAccess = "error",
+                    reportGeneralTypeIssues = "error",
+                    reportImplicitOverride = "none",
+                    reportImplicitStringConcatenation = "none",
+                    reportImportCycles = "warning",
+                    reportIncompatibleMethodOverride = "error",
+                    reportIncompatibleVariableOverride = "error",
+                    reportIncompleteStub = "none",
+                    reportInconsistentConstructor = "error",
+                    reportInvalidStringEscapeSequence = "error",
+                    reportInvalidStubStatement = "none",
+                    reportInvalidTypeVarUse = "error",
+                    reportMatchNotExhaustive = "error",
+                    reportMissingImports = "error",
+                    reportMissingModuleSource = "error",
+                    reportMissingParameterType = "error",
+                    reportMissingSuperCall = "none",
+                    reportMissingTypeArgument = "none",
+                    reportMissingTypeStubs = "none",
+                    reportOptionalCall = "error",
+                    reportOptionalContextManager = "error",
+                    reportOptionalIterable = "error",
+                    reportOptionalMemberAccess = "error",
+                    reportOptionalOperand = "error",
+                    reportOptionalSubscript = "error",
+                    reportOverlappingOverload = "error",
+                    reportPrivateImportUsage = "none",
+                    reportPrivateUsage = "none",
+                    reportPropertyTypeMismatch = "warning",
+                    reportSelfClsParameterName = "error",
+                    reportShadowedImports = "warning",
+                    reportTypeCommentUsage = "error",
+                    reportTypedDictNotRequiredAccess = "error",
+                    reportUnboundVariable = "error",
+                    reportUndefinedVariable = "error",
+                    reportUnknownArgumentType = "none",
+                    reportUnknownLambdaType = "none",
+                    reportUnknownMemberType = "none",
+                    reportUnknownParameterType = "none",
+                    reportUnknownVariableType = "none",
+                    reportUnnecessaryCast = "warning",
+                    reportUnnecessaryComparison = "none",
+                    reportUnnecessaryContains = "warning",
+                    reportUnnecessaryIsInstance = "none",
+                    reportUnsupportedDunderAll = "warning",
+                    reportUntypedBaseClass = "warning",
+                    reportUntypedClassDecorator = "none",
+                    reportUntypedFunctionDecorator = "none",
+                    reportUntypedNamedTuple = "none",
+                    reportUnusedClass = "error",
+                    reportUnusedCoroutine = "error",
+                    reportUnusedExpression = "error",
+                    reportUnusedFunction = "error",
+                    reportUnusedImport = "error",
+                    reportUnusedVariable = "error",
+                    reportWildcardImportFromLibrary = "error",
                 },
             },
         },
@@ -125,6 +201,7 @@ rust_tools.setup({
     server = {
         capabilities = capabilities,
         on_attach = on_attach,
+
         settings = {
             ["rust-analyzer"] = {
                 checkOnSave = {
@@ -139,6 +216,7 @@ rust_tools.setup({
 lspconfig["lua_ls"].setup({
     capabilities = capabilities,
     on_attach = on_attach,
+
     settings = {
         Lua = {
             -- Make the language server recognize "vim" global.
@@ -158,20 +236,22 @@ lspconfig["lua_ls"].setup({
 
 -- Configure C# server.
 lspconfig["omnisharp"].setup({
+    capabilities = capabilities,
+    on_attach = on_attach,
+
     cmd = {
         "omnisharp",
     },
-    capabilities = capabilities,
-    on_attach = on_attach,
 })
 
 -- Configure java server.
 lspconfig["jdtls"].setup({
+    capabilities = capabilities,
+    on_attach = on_attach,
+
     cmd = {
         "/usr/local/bin/jdtls",
     },
-    capabilities = capabilities,
-    on_attach = on_attach,
 })
 
 -- Configure kotlin server.

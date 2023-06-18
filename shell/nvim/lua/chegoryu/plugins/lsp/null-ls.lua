@@ -34,7 +34,12 @@ null_ls.setup({
 
         formatting.cmake_format,
 
-        formatting.black,
+        formatting.black.with({
+            extra_args = {
+                "--line-length=120",
+                "--skip-string-normalization",
+            },
+        }),
 
         formatting.gofmt,
 

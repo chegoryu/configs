@@ -25,7 +25,7 @@ mason_lspconfig.setup({
         "cmake",
 
         -- Python.
-        "pylsp",
+        "pyright",
 
         -- Go.
         "gopls",

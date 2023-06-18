@@ -25,6 +25,7 @@ gmp
 gnupg
 gnutls
 go
+golangci-lint
 gradle
 graphite2
 harfbuzz

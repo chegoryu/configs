@@ -4,6 +4,7 @@ if not setup then
 end
 
 local formatting = null_ls.builtins.formatting
+local diagnostics = null_ls.builtins.diagnostics
 
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
@@ -23,6 +24,7 @@ end
 
 null_ls.setup({
     sources = {
+        -- C/C++
         formatting.clang_format.with({
             filetypes = {
                 "c",
@@ -32,8 +34,10 @@ null_ls.setup({
             },
         }),
 
+        -- CMake.
         formatting.cmake_format,
 
+        -- Python.
         formatting.black.with({
             extra_args = {
                 "--line-length=120",
@@ -41,18 +45,28 @@ null_ls.setup({
             },
         }),
 
+        -- Go.
         formatting.gofmt,
+        diagnostics.golangci_lint.with({
+            condition = function(utils)
+                return utils.root_has_file("go.mod")
+            end,
+        }),
 
+        -- Rust.
         formatting.rustfmt.with({
             extra_args = {
                 "--edition=2021",
             },
         }),
 
+        -- Lua.
         formatting.stylua,
 
+        -- C#.
         formatting.csharpier,
 
+        -- Kotlin.
         formatting.ktlint,
     },
 

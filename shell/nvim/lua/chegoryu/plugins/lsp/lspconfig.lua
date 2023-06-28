@@ -13,6 +13,11 @@ if not rust_tools_status then
     return
 end
 
+local typescript_status, typescript = pcall(require, "typescript")
+if not typescript_status then
+    return
+end
+
 local keymap = vim.keymap
 
 -- Enable keybinds only for when lsp server available.
@@ -256,6 +261,58 @@ lspconfig["jdtls"].setup({
 
 -- Configure kotlin server.
 lspconfig["kotlin_language_server"].setup({
+    capabilities = capabilities,
+    on_attach = on_attach,
+})
+
+-- Configure html server.
+lspconfig["html"].setup({
+    capabilities = capabilities,
+    on_attach = on_attach,
+})
+
+-- Configure css server.
+lspconfig["cssls"].setup({
+    capabilities = capabilities,
+    on_attach = on_attach,
+})
+
+-- Configure tailwindcss server.
+lspconfig["tailwindcss"].setup({
+    capabilities = capabilities,
+    on_attach = on_attach,
+})
+
+-- Configure emmet (UI) server.
+lspconfig["emmet_ls"].setup({
+    capabilities = capabilities,
+    on_attach = on_attach,
+    filetypes = {
+        "css",
+        "eruby",
+        "html",
+        "javascript",
+        "javascriptreact",
+        "less",
+        "pug",
+        "sass",
+        "scss",
+        "svelte",
+        "typescriptreact",
+        "vue",
+    },
+})
+
+-- Configure typescript server.
+typescript.setup({
+    server = {
+        capabilities = capabilities,
+        on_attach = on_attach,
+    },
+})
+
+-- Configure vue server.
+lspconfig["vuels"].setup({
     capabilities = capabilities,
     on_attach = on_attach,
 })

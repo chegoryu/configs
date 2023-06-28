@@ -44,6 +44,22 @@ mason_lspconfig.setup({
 
         -- Kotlin.
         "kotlin_language_server",
+
+        -- Html.
+        "html",
+
+        -- CSS.
+        "cssls",
+        "tailwindcss",
+
+        -- UI Overall.
+        "emmet_ls",
+
+        -- TypeScript.
+        "tsserver",
+
+        -- Vue.
+        "vuels",
     },
     -- Auto-install configured servers (with lspconfig).
     -- NB: Not the same as ensure_installed.
@@ -53,8 +69,36 @@ mason_lspconfig.setup({
 mason_null_ls.setup({
     -- List of formatters & linters for mason to install.
     ensure_installed = {
+        -- C/C++
+        "clang_format",
+
+        -- CMake.
+        "cmake_format",
+
+        -- Python.
+        "black",
+
+        -- Go.
+        "gofmt",
+        "golangci_lint",
+
+        -- Rust.
+        "rustfmt",
+
+        -- Lua.
         "stylua",
+
+        -- C#.
+        "csharpier",
+
+        -- Kotlin.
+        "ktlint",
+
+        -- UI.
+        "prettier",
+        "eslint_d",
     },
     -- Auto-install configured formatters & linters (with null-ls).
+    -- NB: Not the same as ensure_installed.
     automatic_installation = true,
 })

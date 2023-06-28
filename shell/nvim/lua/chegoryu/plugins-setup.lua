@@ -165,6 +165,9 @@ return packer.startup(function(use)
     -- Extra functionality over rust analyzer.
     use("simrat39/rust-tools.nvim")
 
+    -- Extra functionality over typescript LSP.
+    use("jose-elias-alvarez/typescript.nvim")
+
     --------------------------------------------------------------------------------
     -- Formatting & linting.
     --------------------------------------------------------------------------------

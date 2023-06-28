@@ -68,6 +68,14 @@ null_ls.setup({
 
         -- Kotlin.
         formatting.ktlint,
+
+        -- UI.
+        formatting.prettier,
+        diagnostics.eslint_d.with({
+            condition = function(utils)
+                return utils.root_has_file(".eslintrc.js") or utils.root_has_file(".eslintrc.json")
+            end,
+        }),
     },
 
     on_attach = function(current_client, bufnr)

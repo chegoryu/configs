@@ -138,7 +138,9 @@ intellij-idea-ce
 iterm2
 keepassxc
 mactex
+mongodb-compass
 outline-manager
+pgadmin4
 pycharm-ce
 raycast
 skype

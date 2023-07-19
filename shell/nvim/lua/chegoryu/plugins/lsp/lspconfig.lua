@@ -29,7 +29,7 @@ local on_attach = function(client, bufnr)
 
     -- Show definition, references.
     keymap.set("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", opts)
-    -- Got to declaration.
+    -- Go to declaration.
     keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
     -- See definition and make edits in window.
     keymap.set("n", "gd", "<cmd>Lspsaga peek_definition<CR>", opts)

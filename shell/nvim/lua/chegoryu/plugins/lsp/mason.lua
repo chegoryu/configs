@@ -79,7 +79,6 @@ mason_null_ls.setup({
         "black",
 
         -- Go.
-        "gofmt",
         "golangci_lint",
 
         -- Rust.

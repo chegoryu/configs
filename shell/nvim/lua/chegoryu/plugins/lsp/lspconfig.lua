@@ -1,3 +1,5 @@
+local config = require("chegoryu.core.config")
+
 local lspconfig_status, lspconfig = pcall(require, "lspconfig")
 if not lspconfig_status then
     return
@@ -94,7 +96,7 @@ lspconfig["cmake"].setup({
 })
 
 -- Configure python server.
-lspconfig["pyright"].setup({
+local pyright_options = {
     capabilities = capabilities,
     on_attach = on_attach,
 
@@ -182,7 +184,12 @@ lspconfig["pyright"].setup({
             },
         },
     },
-})
+}
+if config.IS_PINELY then
+    pyright_options.settings.python.pythonPath = "/usr/bin/twix-python"
+end
+
+lspconfig["pyright"].setup(pyright_options)
 
 -- Configure go server.
 lspconfig["gopls"].setup({

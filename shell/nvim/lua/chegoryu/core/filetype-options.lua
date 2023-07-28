@@ -1,3 +1,5 @@
+local config = require("chegoryu.core.config")
+
 local api = vim.api
 local keymap = vim.keymap
 local opt = vim.bo
@@ -54,6 +56,11 @@ api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
     },
     group = filetype_options,
     callback = function()
+        if config.IS_PINELY then
+            opt.tabstop = 2
+            opt.shiftwidth = 2
+        end
+
         keymap.set("n", "<F5>", get_run_command("$(realpath %<)"), { buffer = true })
         keymap.set("n", "<F9>", "<cmd>make<CR>", { buffer = true })
     end,
@@ -79,6 +86,25 @@ api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
     group = filetype_options,
     callback = function()
         opt.makeprg = "gcc -DCHEGORYU -Wall -Wextra -std=c2x -O2 -o %< %"
+    end,
+})
+
+--------------------------------------------------------------------------------
+-- CMake.
+--------------------------------------------------------------------------------
+
+api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+    pattern = {
+        "*.cmake",
+
+        "CMakeLists.txt",
+    },
+    group = filetype_options,
+    callback = function()
+        if config.IS_PINELY then
+            opt.tabstop = 2
+            opt.shiftwidth = 2
+        end
     end,
 })
 

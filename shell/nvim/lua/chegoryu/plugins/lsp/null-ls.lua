@@ -1,3 +1,5 @@
+local config = require("chegoryu.core.config")
+
 local setup, null_ls = pcall(require, "null-ls")
 if not setup then
     return
@@ -22,17 +24,31 @@ local function is_autoformatting_enabled(filetype)
     return false
 end
 
+local clang_format_options = {
+    filetypes = {
+        "c",
+        "cpp",
+        "c",
+        "h",
+    },
+}
+local golangci_lint_options = {
+    condition = function(utils)
+        return utils.root_has_file("go.mod")
+    end,
+}
+
+if config.IS_PINELY then
+    clang_format_options.command = "clang-format-16"
+    golangci_lint_options.condition = function()
+        return true
+    end
+end
+
 null_ls.setup({
     sources = {
         -- C/C++
-        formatting.clang_format.with({
-            filetypes = {
-                "c",
-                "cpp",
-                "c",
-                "h",
-            },
-        }),
+        formatting.clang_format.with(clang_format_options),
 
         -- CMake.
         formatting.cmake_format,
@@ -47,11 +63,7 @@ null_ls.setup({
 
         -- Go.
         formatting.gofmt,
-        diagnostics.golangci_lint.with({
-            condition = function(utils)
-                return utils.root_has_file("go.mod")
-            end,
-        }),
+        diagnostics.golangci_lint.with(golangci_lint_options),
 
         -- Rust.
         formatting.rustfmt.with({

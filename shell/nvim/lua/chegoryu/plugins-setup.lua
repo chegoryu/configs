@@ -124,6 +124,14 @@ return packer.startup(function(use)
     use("hrsh7th/cmp-buffer")
     -- Source for file system paths.
     use("hrsh7th/cmp-path")
+    -- Copilot.
+    use("zbirenbaum/copilot.lua")
+    use({
+        "zbirenbaum/copilot-cmp",
+        requires = {
+            { "zbirenbaum/copilot.lua" },
+        },
+    })
 
     --------------------------------------------------------------------------------
     -- Snippets.

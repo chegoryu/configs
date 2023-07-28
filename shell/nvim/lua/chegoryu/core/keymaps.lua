@@ -90,3 +90,14 @@ keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<CR>")
 
 -- Restart lsp server.
 keymap.set("n", "<leader>rs", ":LspRestart<CR>")
+
+--------------------------------------------------------------------------------
+-- Copilot.
+--------------------------------------------------------------------------------
+
+-- Enable/disable copilot.
+keymap.set("n", "<leader>cpe", "<cmd>Copilot enable<CR>")
+keymap.set("n", "<leader>cpd", "<cmd>Copilot disable<CR>")
+
+-- Show copilot status.
+keymap.set("n", "<leader>cps", "<cmd>Copilot status<CR>")

@@ -1,4 +1,6 @@
-if os.getenv("NVIM_DISABLE_COPILOT") then
+local config = require("chegoryu.core.config")
+
+if config.DIABLE_COPILOT then
     return
 end
 

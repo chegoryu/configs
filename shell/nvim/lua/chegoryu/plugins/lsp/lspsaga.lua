@@ -1,9 +1,9 @@
-local saga_status, saga = pcall(require, "lspsaga")
-if not saga_status then
+local lspsaga_status, lspsaga = pcall(require, "lspsaga")
+if not lspsaga_status then
     return
 end
 
-saga.setup({
+lspsaga.setup({
     -- Keybinds for navigation in lspsaga window.
     scroll_preview = {
         scroll_down = "<C-f>",

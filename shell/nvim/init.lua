@@ -7,6 +7,7 @@ require("chegoryu.core.options")
 
 require("chegoryu.plugins.autopairs")
 require("chegoryu.plugins.comment")
+require("chegoryu.plugins.copilot")
 require("chegoryu.plugins.gitsigns")
 require("chegoryu.plugins.highlight-whitespace")
 require("chegoryu.plugins.indent-blankline")

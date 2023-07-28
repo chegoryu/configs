@@ -11,7 +11,7 @@ local keymap = vim.keymap
 keymap.set("i", "jk", "<ESC>")
 
 -- Clear search highlights.
-keymap.set("n", "<leader>nh", ":nohl<CR>")
+keymap.set("n", "<leader>nh", "<cmd>nohl<CR>")
 
 -- Delete single character without copying into register.
 keymap.set("n", "x", '"_x')
@@ -29,30 +29,30 @@ keymap.set("n", "<leader>sh", "<C-w>s")
 -- Make split windows equal width & height.
 keymap.set("n", "<leader>se", "<C-w>=")
 -- Close current split window.
-keymap.set("n", "<leader>sx", ":close<CR>")
+keymap.set("n", "<leader>sx", "<cmd>close<CR>")
 
 -- Open new tab.
-keymap.set("n", "<leader>to", ":tabnew<CR>")
+keymap.set("n", "<leader>to", "<cmd>tabnew<CR>")
 -- Close current tab.
-keymap.set("n", "<leader>tx", ":tabclose<CR>")
+keymap.set("n", "<leader>tx", "<cmd>tabclose<CR>")
 -- Go to next tab.
-keymap.set("n", "<leader>tn", ":tabn<CR>")
+keymap.set("n", "<leader>tn", "<cmd>tabn<CR>")
 -- Go to previous tab.
-keymap.set("n", "<leader>tp", ":tabp<CR>")
+keymap.set("n", "<leader>tp", "<cmd>tabp<CR>")
 
 --------------------------------------------------------------------------------
 -- Nim-maximizer.
 --------------------------------------------------------------------------------
 
 -- Toggle split window maximization.
-keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>")
+keymap.set("n", "<leader>sm", "<cmd>MaximizerToggle<CR>")
 
 --------------------------------------------------------------------------------
 -- Nvim-tree.
 --------------------------------------------------------------------------------
 
 -- Toggle file explorer.
-keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
+keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<CR>")
 
 --------------------------------------------------------------------------------
 -- Telescope.
@@ -84,12 +84,15 @@ keymap.set("n", "<leader>gb", "<cmd>Telescope git_branches<CR>")
 -- List current changes per file with diff preview ["gs" for git status].
 keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<CR>")
 
+-- Show/hide current line blame.
+keymap.set("n", "<leader>gtb", "<cmd>Gitsigns toggle_current_line_blame<CR>")
+
 --------------------------------------------------------------------------------
 -- Lsp.
 --------------------------------------------------------------------------------
 
 -- Restart lsp server.
-keymap.set("n", "<leader>rs", ":LspRestart<CR>")
+keymap.set("n", "<leader>rs", "<cmd>LspRestart<CR>")
 
 --------------------------------------------------------------------------------
 -- Copilot.

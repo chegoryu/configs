@@ -55,7 +55,7 @@ api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
     group = filetype_options,
     callback = function()
         keymap.set("n", "<F5>", get_run_command("$(realpath %<)"), { buffer = true })
-        keymap.set("n", "<F9>", ":make<CR>", { buffer = true })
+        keymap.set("n", "<F9>", "<cmd>make<CR>", { buffer = true })
     end,
 })
 
@@ -110,7 +110,7 @@ api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
 
         opt.makeprg = "go build -o %< %"
         keymap.set("n", "<F5>", get_run_command("$(realpath %<)"), { buffer = true })
-        keymap.set("n", "<F9>", ":make<CR>", { buffer = true })
+        keymap.set("n", "<F9>", "<cmd>make<CR>", { buffer = true })
     end,
 })
 
@@ -126,7 +126,7 @@ api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
     callback = function()
         opt.makeprg = "rustc --cfg chegoryu -O -o %< %"
         keymap.set("n", "<F5>", get_run_command("$(realpath %<)"), { buffer = true })
-        keymap.set("n", "<F9>", ":make!<CR>", { buffer = true })
+        keymap.set("n", "<F9>", "<cmd>make!<CR>", { buffer = true })
     end,
 })
 
@@ -142,7 +142,7 @@ api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
     callback = function()
         opt.makeprg = "mcs -optimize -out:%< %"
         keymap.set("n", "<F5>", get_run_command("mono $(realpath %<)"), { buffer = true })
-        keymap.set("n", "<F9>", ":make<CR>", { buffer = true })
+        keymap.set("n", "<F9>", "<cmd>make<CR>", { buffer = true })
     end,
 })
 
@@ -164,7 +164,7 @@ api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
             .. "jar -c -f ../../$class_name.jar -e $class_name *.class"
 
         keymap.set("n", "<F5>", get_run_command("java -jar $(realpath %<.jar)"), { buffer = true })
-        keymap.set("n", "<F9>", ":make<CR>", { buffer = true })
+        keymap.set("n", "<F9>", "<cmd>make<CR>", { buffer = true })
     end,
 })
 
@@ -180,6 +180,6 @@ api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
     callback = function()
         opt.makeprg = "kotlinc -include-runtime -d %<.jar %"
         keymap.set("n", "<F5>", get_run_command("java -jar $(realpath %<.jar)"), { buffer = true })
-        keymap.set("n", "<F9>", ":make<CR>", { buffer = true })
+        keymap.set("n", "<F9>", "<cmd>make<CR>", { buffer = true })
     end,
 })

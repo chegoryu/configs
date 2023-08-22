@@ -9,9 +9,23 @@ lspsaga.setup({
         scroll_down = "<C-f>",
         scroll_up = "<C-b>",
     },
-    -- Use enter to open file with definition preview.
+    finder = {
+        keys = {
+            -- Use enter to open file with finder preview.
+            toggle_or_open = {
+                "o",
+                "<CR>",
+            },
+        },
+    },
     definition = {
-        edit = "<CR>",
+        keys = {
+            -- Use enter to open file with definition preview.
+            edit = {
+                "<C-c>o",
+                "<CR>",
+            },
+        },
     },
     ui = {
         colors = {

@@ -30,7 +30,7 @@ local on_attach = function(client, bufnr)
     -- Set keybinds.
 
     -- Show definition, references.
-    keymap.set("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", opts)
+    keymap.set("n", "gf", "<cmd>Lspsaga finder<CR>", opts)
     -- Go to declaration.
     keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
     -- See definition and make edits in window.

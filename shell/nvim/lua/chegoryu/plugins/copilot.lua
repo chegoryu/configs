@@ -24,6 +24,9 @@ copilot.setup({
     panel = {
         enabled = false,
     },
+    filetypes = {
+        markdown = true,
+    },
 })
 
 copilot_cmp.setup()

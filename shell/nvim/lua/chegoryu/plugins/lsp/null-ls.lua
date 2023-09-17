@@ -76,13 +76,21 @@ null_ls.setup({
         formatting.stylua,
 
         -- C#.
-        formatting.csharpier,
+        formatting.csharpier.with({
+            condition = function()
+                return not config.IS_PINELY
+            end,
+        }),
 
         -- Kotlin.
         formatting.ktlint,
 
         -- UI.
-        formatting.prettier,
+        formatting.prettier.with({
+            extra_args = {
+                "--tab-width=4",
+            },
+        }),
         diagnostics.eslint_d.with({
             condition = function(utils)
                 return utils.root_has_file(".eslintrc.js") or utils.root_has_file(".eslintrc.json")

@@ -66,6 +66,8 @@ keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<CR>")
 keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep_args<CR>")
 -- Find string under cursor in current working directory.
 keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<CR>")
+-- Open last telescope window.
+keymap.set("n", "<leader>fr", "<cmd>Telescope resume<CR>")
 -- Fist open buffers in current neovim instance.
 keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<CR>")
 -- List available help tags.

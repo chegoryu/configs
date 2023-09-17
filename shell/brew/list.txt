@@ -138,6 +138,7 @@ intellij-idea-ce
 iterm2
 keepassxc
 mactex
+microsoft-remote-desktop
 mongodb-compass
 outline-manager
 pgadmin4

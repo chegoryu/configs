@@ -11,10 +11,12 @@ fi
 export CARGOPATH="$HOME/.cargo"
 export DOTNETPATH="$HOME/.dotnet"
 export GOPATH="$HOME/.go"
+export LLVMPATH="$HOME/.llvm"
 
 export PATH="$PATH:$CARGOPATH/bin"
 export PATH="$PATH:$DOTNETPATH/tools"
 export PATH="$PATH:$GOPATH/bin"
+export PATH="$PATH:$LLVMPATH/bin"
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -128,8 +130,8 @@ alias reload_zsh="source ~/.zshrc"
 
 alias arc="git"
 
-alias g++="g++-12"
-alias gcc="gcc-12"
+alias g++="g++-13"
+alias gcc="gcc-13"
 
 alias jq="jq --indent 4"
 

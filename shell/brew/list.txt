@@ -12,6 +12,7 @@ cloudflared
 cmake
 coreutils
 docker
+docker-completion
 docker-compose
 dos2unix
 fontconfig
@@ -71,6 +72,7 @@ libxmu
 libxrender
 libxt
 little-cms2
+llvm
 lua
 lua@5.3
 luajit
@@ -92,6 +94,7 @@ oniguruma
 openjdk
 openjdk@17
 openjpeg
+openldap
 openssl@1.1
 openssl@3
 p11-kit
@@ -100,11 +103,13 @@ pcre2
 pinentry
 pixman
 pkg-config
+python-packaging
 python@3.11
 readline
 ripgrep
 rustup-init
 skhd
+speexdsp
 sqlite
 telnet
 tig
@@ -120,6 +125,7 @@ xclip
 xorgproto
 xz
 yabai
+z3
 zstd
 
 ################################################################################

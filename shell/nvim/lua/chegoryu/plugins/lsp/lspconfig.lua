@@ -261,10 +261,6 @@ lspconfig["omnisharp"].setup({
 lspconfig["jdtls"].setup({
     capabilities = capabilities,
     on_attach = on_attach,
-
-    cmd = {
-        "/usr/local/bin/jdtls",
-    },
 })
 
 -- Configure kotlin server.

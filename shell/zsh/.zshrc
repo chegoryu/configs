@@ -138,5 +138,14 @@ alias jq="jq --indent 4"
 alias vvim="command vim"
 alias vim="nvim"
 
+# Custom functions
+
+swap() {
+    tmp_dir=$(mktemp -d) &&
+    mv "$1" "$tmp_dir/first" &&
+    mv "$2" "$1" &&
+    mv "$tmp_dir/first" "$2"
+}
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

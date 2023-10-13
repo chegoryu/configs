@@ -39,7 +39,7 @@ local golangci_lint_options = {
 }
 
 if config.IS_PINELY then
-    clang_format_options.command = "clang-format-16"
+    clang_format_options.command = "clang-format-17"
     golangci_lint_options.condition = function()
         return true
     end

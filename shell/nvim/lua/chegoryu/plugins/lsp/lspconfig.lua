@@ -195,6 +195,9 @@ lspconfig["pyright"].setup(pyright_options)
 lspconfig["gopls"].setup({
     capabilities = capabilities,
     on_attach = on_attach,
+    cmd_env = {
+        GOFLAGS = "-tags=e2e",
+    },
 })
 
 -- Configure rust server.

@@ -29,6 +29,7 @@ go
 golangci-lint
 gradle
 graphite2
+grpcurl
 harfbuzz
 htop
 icu4c

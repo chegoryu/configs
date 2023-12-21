@@ -1,32 +1,43 @@
-local config = require("chegoryu.core.config")
+return {
+    -- Copilot.
+    "zbirenbaum/copilot.lua",
+    config = function()
+        local config = require("chegoryu.core.config")
 
-if config.DIABLE_COPILOT then
-    return
-end
+        if config.DIABLE_COPILOT then
+            return
+        end
 
-local copilot_status, copilot = pcall(require, "copilot")
-if not copilot_status then
-    return
-end
+        local copilot = require("copilot")
 
-local copilot_cmp_status, copilot_cmp = pcall(require, "copilot_cmp")
-if not copilot_cmp_status then
-    return
-end
+        -- Change copilot snippets color.
+        vim.cmd([[ highlight CmpItemKindCopilot guifg=#3FC5FF ]])
 
--- Change copilot snippets color.
-vim.cmd([[ highlight CmpItemKindCopilot guifg=#3FC5FF ]])
+        copilot.setup({
+            suggestion = {
+                enabled = false,
+            },
+            panel = {
+                enabled = false,
+            },
+            filetypes = {
+                markdown = true,
+            },
+        })
 
-copilot.setup({
-    suggestion = {
-        enabled = false,
-    },
-    panel = {
-        enabled = false,
-    },
-    filetypes = {
-        markdown = true,
-    },
-})
+        -- Set keymaps.
+        local keymap = vim.keymap
 
-copilot_cmp.setup()
+        -- Enable/disable copilot.
+        keymap.set("n", "<leader>cpe", "<cmd>Copilot enable<CR>", {
+            desc = "Enable copilot.",
+        })
+        keymap.set("n", "<leader>cpd", "<cmd>Copilot disable<CR>", {
+            desc = "Disable copilot.",
+        })
+
+        keymap.set("n", "<leader>cps", "<cmd>Copilot status<CR>", {
+            desc = "Show copilot status.",
+        })
+    end,
+}

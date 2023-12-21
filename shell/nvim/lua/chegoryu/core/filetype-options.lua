@@ -38,7 +38,10 @@ api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
     },
     group = filetype_options,
     callback = function()
-        keymap.set("n", "<F5>", get_run_command("bash $(realpath %)"), { buffer = true })
+        keymap.set("n", "<F5>", get_run_command("bash $(realpath %)"), {
+            buffer = true,
+            desc = "Run shell script.",
+        })
     end,
 })
 
@@ -61,8 +64,14 @@ api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
             opt.shiftwidth = 2
         end
 
-        keymap.set("n", "<F5>", get_run_command("$(realpath %<)"), { buffer = true })
-        keymap.set("n", "<F9>", "<cmd>make<CR>", { buffer = true })
+        keymap.set("n", "<F5>", get_run_command("$(realpath %<)"), {
+            buffer = true,
+            desc = "Run C/C++ program.",
+        })
+        keymap.set("n", "<F9>", "<cmd>make<CR>", {
+            buffer = true,
+            desc = "Make C/C++ program.",
+        })
     end,
 })
 
@@ -118,7 +127,10 @@ api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
     },
     group = filetype_options,
     callback = function()
-        keymap.set("n", "<F5>", get_run_command("python3 $(realpath %)"), { buffer = true })
+        keymap.set("n", "<F5>", get_run_command("python3 $(realpath %)"), {
+            buffer = true,
+            desc = "Run python script.",
+        })
     end,
 })
 
@@ -135,8 +147,14 @@ api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
         opt.expandtab = false
 
         opt.makeprg = "go build -o %< %"
-        keymap.set("n", "<F5>", get_run_command("$(realpath %<)"), { buffer = true })
-        keymap.set("n", "<F9>", "<cmd>make<CR>", { buffer = true })
+        keymap.set("n", "<F5>", get_run_command("$(realpath %<)"), {
+            buffer = true,
+            desc = "Run go program.",
+        })
+        keymap.set("n", "<F9>", "<cmd>make<CR>", {
+            buffer = true,
+            desc = "Make go program.",
+        })
     end,
 })
 
@@ -151,8 +169,14 @@ api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
     group = filetype_options,
     callback = function()
         opt.makeprg = "rustc --cfg chegoryu -O -o %< %"
-        keymap.set("n", "<F5>", get_run_command("$(realpath %<)"), { buffer = true })
-        keymap.set("n", "<F9>", "<cmd>make!<CR>", { buffer = true })
+        keymap.set("n", "<F5>", get_run_command("$(realpath %<)"), {
+            buffer = true,
+            desc = "Run rust program.",
+        })
+        keymap.set("n", "<F9>", "<cmd>make!<CR>", {
+            buffer = true,
+            desc = "Make rust program.",
+        })
     end,
 })
 
@@ -167,8 +191,14 @@ api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
     group = filetype_options,
     callback = function()
         opt.makeprg = "mcs -optimize -out:%< %"
-        keymap.set("n", "<F5>", get_run_command("mono $(realpath %<)"), { buffer = true })
-        keymap.set("n", "<F9>", "<cmd>make<CR>", { buffer = true })
+        keymap.set("n", "<F5>", get_run_command("mono $(realpath %<)"), {
+            buffer = true,
+            desc = "Run C# program.",
+        })
+        keymap.set("n", "<F9>", "<cmd>make<CR>", {
+            buffer = true,
+            desc = "Make C# program.",
+        })
     end,
 })
 
@@ -189,8 +219,14 @@ api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
             .. "javac $source_file -d . && "
             .. "jar -c -f ../../$class_name.jar -e $class_name *.class"
 
-        keymap.set("n", "<F5>", get_run_command("java -jar $(realpath %<.jar)"), { buffer = true })
-        keymap.set("n", "<F9>", "<cmd>make<CR>", { buffer = true })
+        keymap.set("n", "<F5>", get_run_command("java -jar $(realpath %<.jar)"), {
+            buffer = true,
+            desc = "Run java program.",
+        })
+        keymap.set("n", "<F9>", "<cmd>make<CR>", {
+            buffer = true,
+            desc = "Make java program.",
+        })
     end,
 })
 
@@ -205,7 +241,13 @@ api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
     group = filetype_options,
     callback = function()
         opt.makeprg = "kotlinc -include-runtime -d %<.jar %"
-        keymap.set("n", "<F5>", get_run_command("java -jar $(realpath %<.jar)"), { buffer = true })
-        keymap.set("n", "<F9>", "<cmd>make<CR>", { buffer = true })
+        keymap.set("n", "<F5>", get_run_command("java -jar $(realpath %<.jar)"), {
+            buffer = true,
+            desc = "Run kotlin program.",
+        })
+        keymap.set("n", "<F9>", "<cmd>make<CR>", {
+            buffer = true,
+            desc = "Make kotlin program.",
+        })
     end,
 })

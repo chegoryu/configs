@@ -80,19 +80,19 @@ return {
 
         -- List all git commits (use <CR> to checkout) ["gc" for git commits].
         keymap.set("n", "<leader>gc", "<cmd>Telescope git_commits<CR>", {
-            desc = 'List all git commits (use <CR> to checkout) ["gc" for git commits].',
+            desc = "List all git commits (use <CR> to checkout).",
         })
         -- List git commits for current file/buffer (use <CR> to checkout) ["gfc" for git file commits].
         keymap.set("n", "<leader>gfc", "<cmd>Telescope git_bcommits<CR>", {
-            desc = 'List git commits for current file/buffer (use <CR> to checkout) ["gfc" for git file commits].',
+            desc = "List git commits for current file/buffer.",
         })
         -- List git branches (use <CR> to checkout) ["gb" for git branch].
         keymap.set("n", "<leader>gb", "<cmd>Telescope git_branches<CR>", {
-            desc = 'List git branches (use <CR> to checkout) ["gb" for git branch].',
+            desc = "List git branches (use <CR> to checkout).",
         })
         -- List current changes per file with diff preview ["gs" for git status].
         keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<CR>", {
-            desc = 'List current changes per file with diff preview ["gs" for git status].',
+            desc = "List current changes per file with diff preview.",
         })
     end,
 }

@@ -1,6 +1,5 @@
 return {
-    -- Whitespaces auto trimming.
-    "cappyzawa/trim.nvim",
+    "NvChad/nvim-colorizer.lua",
     event = { "BufReadPre", "BufNewFile" },
     config = true,
 }

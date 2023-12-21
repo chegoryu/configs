@@ -1,110 +1,119 @@
-local config = require("chegoryu.core.config")
+return {
+    -- Managing & installing lsp servers, linters & formatters.
+    "williamboman/mason.nvim",
+    dependencies = {
+        -- Bridges gap b/w mason & lspconfig.
+        "williamboman/mason-lspconfig.nvim",
+        "jayp0521/mason-null-ls.nvim",
+        "WhoIsSethDaniel/mason-tool-installer.nvim",
+    },
+    config = function()
+        local config = require("chegoryu.core.config")
 
-local mason_status, mason = pcall(require, "mason")
-if not mason_status then
-    return
-end
+        local mason = require("mason")
+        local mason_lspconfig = require("mason-lspconfig")
+        local mason_null_ls = require("mason-null-ls")
 
-local mason_lspconfig_status, mason_lspconfig = pcall(require, "mason-lspconfig")
-if not mason_lspconfig_status then
-    return
-end
+        mason.setup({
+            ui = {
+                icons = {
+                    package_installed = "✓",
+                    package_pending = "➜",
+                    package_uninstalled = "✗",
+                },
+            },
+        })
 
-local mason_null_ls_status, mason_null_ls = pcall(require, "mason-null-ls")
-if not mason_null_ls_status then
-    return
-end
+        local language_servers = {
+            -- C/C++.
+            "clangd",
 
-mason.setup()
+            -- CMake.
+            "cmake",
 
-local language_servers = {
-    -- C/C++.
-    "clangd",
+            -- Python.
+            "pyright",
 
-    -- CMake.
-    "cmake",
+            -- Go.
+            "gopls",
 
-    -- Python.
-    "pyright",
+            -- Rust.
+            "rust_analyzer",
 
-    -- Go.
-    "gopls",
+            -- Lua.
+            "lua_ls",
 
-    -- Rust.
-    "rust_analyzer",
+            -- Java.
+            "jdtls",
 
-    -- Lua.
-    "lua_ls",
+            -- Kotlin.
+            "kotlin_language_server",
 
-    -- Java.
-    "jdtls",
+            -- Html.
+            "html",
 
-    -- Kotlin.
-    "kotlin_language_server",
+            -- CSS.
+            "cssls",
+            "tailwindcss",
 
-    -- Html.
-    "html",
+            -- UI Overall.
+            "emmet_ls",
 
-    -- CSS.
-    "cssls",
-    "tailwindcss",
+            -- TypeScript.
+            "tsserver",
 
-    -- UI Overall.
-    "emmet_ls",
+            -- Vue.
+            "vuels",
+        }
 
-    -- TypeScript.
-    "tsserver",
+        local formatters_and_linters = {
+            -- C/C++
+            "clang_format",
 
-    -- Vue.
-    "vuels",
+            -- CMake.
+            "cmake_format",
+
+            -- Python.
+            "black",
+
+            -- Go.
+            "golangci_lint",
+
+            -- Rust.
+            "rustfmt",
+
+            -- Lua.
+            "stylua",
+
+            -- Kotlin.
+            "ktlint",
+
+            -- UI.
+            "prettier",
+            "eslint_d",
+        }
+
+        if not config.IS_PINELY then
+            -- C#.
+            table.insert(language_servers, "omnisharp")
+            table.insert(formatters_and_linters, "csharpier")
+        end
+
+        mason_lspconfig.setup({
+            -- List of servers for mason to install.
+            ensure_installed = language_servers,
+
+            -- Auto-install configured servers (with lspconfig).
+            -- NB: Not the same as ensure_installed.
+            automatic_installation = true,
+        })
+
+        mason_null_ls.setup({
+            -- List of formatters & linters for mason to install.
+            ensure_installed = formatters_and_linters,
+            -- Auto-install configured formatters & linters (with null-ls).
+            -- NB: Not the same as ensure_installed.
+            automatic_installation = true,
+        })
+    end,
 }
-
-local formatters_and_linters = {
-    -- C/C++
-    "clang_format",
-
-    -- CMake.
-    "cmake_format",
-
-    -- Python.
-    "black",
-
-    -- Go.
-    "golangci_lint",
-
-    -- Rust.
-    "rustfmt",
-
-    -- Lua.
-    "stylua",
-
-    -- Kotlin.
-    "ktlint",
-
-    -- UI.
-    "prettier",
-    "eslint_d",
-}
-
-if not config.IS_PINELY then
-    -- C#.
-    table.insert(language_servers, "omnisharp")
-    table.insert(formatters_and_linters, "csharpier")
-end
-
-mason_lspconfig.setup({
-    -- List of servers for mason to install.
-    ensure_installed = language_servers,
-
-    -- Auto-install configured servers (with lspconfig).
-    -- NB: Not the same as ensure_installed.
-    automatic_installation = true,
-})
-
-mason_null_ls.setup({
-    -- List of formatters & linters for mason to install.
-    ensure_installed = formatters_and_linters,
-    -- Auto-install configured formatters & linters (with null-ls).
-    -- NB: Not the same as ensure_installed.
-    automatic_installation = true,
-})

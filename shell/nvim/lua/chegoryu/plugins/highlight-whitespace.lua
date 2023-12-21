@@ -6,7 +6,7 @@ end
 highlightwhitespace.setup({
     tws = "[\r \t]\\+$",
     clear_on_winleave = false,
-    user_palette = {
+    palette = {
         go = {
             tws = "RoyalBlue4",
         },

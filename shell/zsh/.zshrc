@@ -142,6 +142,8 @@ if which gsed > /dev/null; then
     alias sed="gsed"
 fi
 
+alias twix-python="python3.12"
+
 # Custom functions
 
 swap() {

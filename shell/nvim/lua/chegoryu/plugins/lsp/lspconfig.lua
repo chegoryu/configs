@@ -199,8 +199,12 @@ return {
                 },
             },
         }
-        if config.IS_PINELY then
-            pyright_options.settings.python.pythonPath = "/usr/bin/twix-python"
+
+        if config.PYTHON_PATH ~= nil then
+            pyright_options.settings.python.pythonPath = config.PYTHON_PATH
+        end
+        if config.PYTHON_VENV_PATH ~= nil then
+            pyright_options.settings.python.venvPath = config.PYTHON_VENV_PATH
         end
 
         lspconfig.pyright.setup(pyright_options)
@@ -249,9 +253,12 @@ return {
 
             settings = {
                 Lua = {
-                    -- Make the language server recognize "vim" global.
+                    -- Make the language server recognize "vim" and "os" globals.
                     diagnostics = {
-                        globals = { "vim" },
+                        globals = {
+                            "vim",
+                            "os",
+                        },
                     },
                     workspace = {
                         -- Make language server aware of runtime files.

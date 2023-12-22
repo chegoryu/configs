@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env bash -e
 
 code --install-extension CS128.cs128-clang-tidy
 code --install-extension golang.go

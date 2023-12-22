@@ -4,7 +4,7 @@ return {
     dependencies = {
         -- Bridges gap b/w mason & lspconfig.
         "williamboman/mason-lspconfig.nvim",
-        "jayp0521/mason-null-ls.nvim",
+        "jay-babu/mason-null-ls.nvim",
         "WhoIsSethDaniel/mason-tool-installer.nvim",
     },
     config = function()
@@ -80,7 +80,8 @@ return {
             "golangci_lint",
 
             -- Rust.
-            "rustfmt",
+            -- NB: rustfmt must be installed via rustup.
+            -- "rustfmt",
 
             -- Lua.
             "stylua",

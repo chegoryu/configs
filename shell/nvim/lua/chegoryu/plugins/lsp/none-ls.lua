@@ -1,11 +1,10 @@
 return {
     -- Configure formatters & linters.
-    "jose-elias-alvarez/null-ls.nvim",
-    lazy = true,
+    "nvimtools/none-ls.nvim",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
         -- Bridges gap b/w mason & null-ls.
-        "jayp0521/mason-null-ls.nvim",
+        "jay-babu/mason-null-ls.nvim",
     },
     config = function()
         local config = require("chegoryu.core.config")

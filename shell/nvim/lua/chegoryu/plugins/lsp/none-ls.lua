@@ -51,59 +51,74 @@ return {
             end
         end
 
-        null_ls.setup({
-            sources = {
-                -- C/C++
-                formatting.clang_format.with(clang_format_options),
+        local sources = {
+            -- C/C++
+            formatting.clang_format.with(clang_format_options),
 
-                -- CMake.
-                formatting.cmake_format,
+            -- CMake.
+            formatting.cmake_format,
 
-                -- Python.
-                formatting.black.with({
-                    extra_args = {
-                        "--line-length=120",
-                        "--skip-string-normalization",
-                    },
-                }),
+            -- Python.
+            formatting.black.with({
+                extra_args = {
+                    "--line-length=120",
+                    "--skip-string-normalization",
+                },
+            }),
 
-                -- Go.
-                formatting.gofmt,
-                diagnostics.golangci_lint.with(golangci_lint_options),
+            -- Go.
+            formatting.gofmt,
+            diagnostics.golangci_lint.with(golangci_lint_options),
 
-                -- Rust.
-                formatting.rustfmt.with({
-                    extra_args = {
-                        "--edition=2021",
-                    },
-                }),
+            -- Rust.
+            formatting.rustfmt.with({
+                extra_args = {
+                    "--edition=2021",
+                },
+            }),
 
-                -- Lua.
-                formatting.stylua,
+            -- Lua.
+            formatting.stylua,
 
-                -- C#.
+            -- C#.
+            formatting.csharpier.with({
+                condition = function()
+                    return not config.IS_PINELY
+                end,
+            }),
+
+            -- Kotlin.
+            formatting.ktlint,
+
+            -- UI.
+            formatting.prettier.with({
+                extra_args = {
+                    "--tab-width=4",
+                },
+            }),
+            diagnostics.eslint_d.with({
+                condition = function(utils)
+                    return utils.root_has_file(".eslintrc.js") or utils.root_has_file(".eslintrc.json")
+                end,
+            }),
+        }
+
+        -- This if is required because we do not want to install csharpier.
+        -- Condition inside options allows to avoid running formatter, but null-ls will still try to install it.
+        if not config.IS_PINELY then
+            -- C#.
+            table.insert(
+                sources,
                 formatting.csharpier.with({
                     condition = function()
                         return not config.IS_PINELY
                     end,
-                }),
+                })
+            )
+        end
 
-                -- Kotlin.
-                formatting.ktlint,
-
-                -- UI.
-                formatting.prettier.with({
-                    extra_args = {
-                        "--tab-width=4",
-                    },
-                }),
-                diagnostics.eslint_d.with({
-                    condition = function(utils)
-                        return utils.root_has_file(".eslintrc.js") or utils.root_has_file(".eslintrc.json")
-                    end,
-                }),
-            },
-
+        null_ls.setup({
+            sources = sources,
             on_attach = function(current_client, bufnr)
                 local function format_code()
                     vim.lsp.buf.format({

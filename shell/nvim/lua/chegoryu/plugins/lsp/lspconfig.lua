@@ -83,7 +83,7 @@ return {
         local clangd_capabilities = cmp_nvim_lsp.default_capabilities()
         clangd_capabilities.offsetEncoding = "utf-8"
 
-        lspconfig["clangd"].setup({
+        lspconfig.clangd.setup({
             capabilities = clangd_capabilities,
             on_attach = on_attach,
 
@@ -99,7 +99,7 @@ return {
         })
 
         -- Configure cmake server.
-        lspconfig["cmake"].setup({
+        lspconfig.cmake.setup({
             capabilities = capabilities,
             on_attach = on_attach,
 
@@ -203,10 +203,10 @@ return {
             pyright_options.settings.python.pythonPath = "/usr/bin/twix-python"
         end
 
-        lspconfig["pyright"].setup(pyright_options)
+        lspconfig.pyright.setup(pyright_options)
 
         -- Configure go server.
-        lspconfig["gopls"].setup({
+        lspconfig.gopls.setup({
             capabilities = capabilities,
             on_attach = on_attach,
             cmd_env = {
@@ -243,7 +243,7 @@ return {
         })
 
         -- Configure lua server.
-        lspconfig["lua_ls"].setup({
+        lspconfig.lua_ls.setup({
             capabilities = capabilities,
             on_attach = on_attach,
 
@@ -265,7 +265,7 @@ return {
         })
 
         -- Configure C# server.
-        lspconfig["omnisharp"].setup({
+        lspconfig.omnisharp.setup({
             capabilities = capabilities,
             on_attach = on_attach,
 
@@ -275,37 +275,37 @@ return {
         })
 
         -- Configure java server.
-        lspconfig["jdtls"].setup({
+        lspconfig.jdtls.setup({
             capabilities = capabilities,
             on_attach = on_attach,
         })
 
         -- Configure kotlin server.
-        lspconfig["kotlin_language_server"].setup({
+        lspconfig.kotlin_language_server.setup({
             capabilities = capabilities,
             on_attach = on_attach,
         })
 
         -- Configure html server.
-        lspconfig["html"].setup({
+        lspconfig.html.setup({
             capabilities = capabilities,
             on_attach = on_attach,
         })
 
         -- Configure css server.
-        lspconfig["cssls"].setup({
+        lspconfig.cssls.setup({
             capabilities = capabilities,
             on_attach = on_attach,
         })
 
         -- Configure tailwindcss server.
-        lspconfig["tailwindcss"].setup({
+        lspconfig.tailwindcss.setup({
             capabilities = capabilities,
             on_attach = on_attach,
         })
 
         -- Configure emmet (UI) server.
-        lspconfig["emmet_ls"].setup({
+        lspconfig.emmet_ls.setup({
             capabilities = capabilities,
             on_attach = on_attach,
             filetypes = {
@@ -333,7 +333,7 @@ return {
         })
 
         -- Configure vue server.
-        lspconfig["vuels"].setup({
+        lspconfig.vuels.setup({
             capabilities = capabilities,
             on_attach = on_attach,
         })

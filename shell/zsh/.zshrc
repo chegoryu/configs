@@ -138,13 +138,37 @@ alias jq="jq --indent 4"
 alias vvim="command vim"
 alias vim="nvim"
 
+if which gsed > /dev/null; then
+    alias sed="gsed"
+fi
+
 # Custom functions
 
 swap() {
+    if [[ "$#" -ne 2 ]]; then
+        echo "Usage: swap <file1> <file2>"
+        return
+    fi
+
     tmp_dir=$(mktemp -d) &&
     mv "$1" "$tmp_dir/first" &&
     mv "$2" "$1" &&
     mv "$tmp_dir/first" "$2"
+}
+
+replace_rec() {
+    sed_cmd="sed"
+    if which gsed > /dev/null; then
+        sed_cmd="gsed"
+    fi
+
+    if [[ "$#" -eq 2 ]]; then
+        find "$1" -type f -exec "$sed_cmd" -i -e "$2" {} \;
+    elif [[ "$#" -eq 1 ]]; then
+        find './' -type f -exec "$sed_cmd" -i -e "$1" {} \;
+    else
+        echo "Usage: replace_rec <pattern> <replacement> or replace_rec <pattern>"
+    fi
 }
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.

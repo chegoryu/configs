@@ -23,6 +23,7 @@ ghostscript
 giflib
 glib
 gmp
+gnu-sed
 gnupg
 gnutls
 go
@@ -80,6 +81,7 @@ luajit
 luv
 lz4
 lzo
+meson
 mono
 mpdecimal
 mpfr
@@ -87,6 +89,7 @@ msgpack
 ncurses
 neovim
 nettle
+ninja
 nmap
 node
 npth
@@ -106,6 +109,7 @@ pixman
 pkg-config
 python-packaging
 python@3.11
+python@3.12
 readline
 ripgrep
 rustup-init

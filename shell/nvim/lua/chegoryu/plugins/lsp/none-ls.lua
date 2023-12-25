@@ -80,13 +80,6 @@ return {
             -- Lua.
             formatting.stylua,
 
-            -- C#.
-            formatting.csharpier.with({
-                condition = function()
-                    return not config.IS_PINELY
-                end,
-            }),
-
             -- Kotlin.
             formatting.ktlint,
 

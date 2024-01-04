@@ -173,5 +173,21 @@ replace_rec() {
     fi
 }
 
+git_clone_or_pull() {
+    if [[ "$#" -ne 2 ]]; then
+        echo "Usage: git_clone_or_pull <repo> <dir>"
+        return
+    fi
+
+    if [[ -d "$2" ]]; then
+        git -C "$2" pull
+    else
+        git clone "$1" "$2"
+    fi
+}
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Enable fzf.
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh

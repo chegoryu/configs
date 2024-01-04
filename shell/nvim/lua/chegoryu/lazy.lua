@@ -12,8 +12,10 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local imports = {
-    { import = "chegoryu.plugins" },
+    { import = "chegoryu.plugins.common" },
+    { import = "chegoryu.plugins.editor" },
     { import = "chegoryu.plugins.lsp" },
+    { import = "chegoryu.plugins.ui" },
 }
 
 require("lazy").setup(imports, {

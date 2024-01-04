@@ -1,0 +1,5 @@
+# Ignore generated files.
+fzf.*
+
+# Ignore code directory.
+/repo

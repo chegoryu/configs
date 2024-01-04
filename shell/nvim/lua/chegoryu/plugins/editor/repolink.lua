@@ -1,7 +1,7 @@
 return {
     "9seconds/repolink.nvim",
     keys = {
-        { "<leader>rl", "<cmd>RepoLink!<CR>", desc = "Copy repository link to buffer." },
+        { "<leader>rl", "<cmd>RepoLink!<CR>", mode = { "n", "v" }, desc = "Copy repository link to buffer." },
     },
     config = function()
         local config = require("chegoryu.core.config")

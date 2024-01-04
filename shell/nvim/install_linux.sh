@@ -1,4 +1,4 @@
-#!/usr/bin/env bash -e
+#!/usr/bin/env -S bash -e
 
 # Be careful, the build will succeed even if some dependencies are missing,
 # but some neovim features will not work (for example tmux clipboard integration).

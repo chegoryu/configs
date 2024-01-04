@@ -107,13 +107,19 @@ pcre2
 pinentry
 pixman
 pkg-config
+python-attrs
+python-click
+python-idna
 python-packaging
+python-pathspec
+python-platformdirs
 python@3.11
 python@3.12
 readline
 ripgrep
 rustup-init
 skhd
+snakeviz
 speexdsp
 sqlite
 telnet
@@ -164,4 +170,5 @@ the-unarchiver
 visual-studio-code
 vlc
 wireshark
+xquartz
 zoom

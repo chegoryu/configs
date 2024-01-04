@@ -1,4 +1,4 @@
-#!/usr/bin/env bash -e
+#!/usr/bin/env -S bash -e
 
 sudo apt-get update && sudo apt-get install libevent-dev ncurses-dev build-essential bison pkg-config
 

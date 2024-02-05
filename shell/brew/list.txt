@@ -15,6 +15,7 @@ docker
 docker-completion
 docker-compose
 dos2unix
+fd
 fontconfig
 freetype
 gcc
@@ -115,6 +116,7 @@ python-pathspec
 python-platformdirs
 python@3.11
 python@3.12
+qbittorrent-cli
 readline
 ripgrep
 rustup-init
@@ -160,6 +162,7 @@ mongodb-compass
 outline-manager
 pgadmin4
 pycharm-ce
+qbittorrent
 raycast
 skype
 slack

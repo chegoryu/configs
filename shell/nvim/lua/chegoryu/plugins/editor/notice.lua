@@ -5,7 +5,7 @@ return {
         "MunifTanjim/nui.nvim",
         "rcarriga/nvim-notify",
     },
-    -- event = { "VeryLazy" },
+    event = { "VeryLazy" },
     opts = {
         lsp = {
             -- Override markdown rendering so that cmp and other plugins use Treesitter.

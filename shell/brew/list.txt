@@ -159,6 +159,7 @@ keepassxc
 mactex
 microsoft-remote-desktop
 mongodb-compass
+obsbot-center
 outline-manager
 pgadmin4
 pycharm-ce

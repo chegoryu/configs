@@ -30,6 +30,20 @@ return {
             return false
         end
 
+        local black_options = {
+            extra_args = {
+                "--line-length=120",
+                "--skip-string-normalization",
+            },
+        }
+        if config.USE_BLACK_FROM_PYTHON then
+            black_options.command = {
+                config.PYTHON_PATH,
+                "-m",
+                "black",
+            }
+        end
+
         local clang_format_options = {
             filetypes = {
                 "c",
@@ -59,12 +73,7 @@ return {
             formatting.cmake_format,
 
             -- Python.
-            formatting.black.with({
-                extra_args = {
-                    "--line-length=120",
-                    "--skip-string-normalization",
-                },
-            }),
+            formatting.black.with(black_options),
 
             -- Go.
             formatting.gofmt,

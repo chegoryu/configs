@@ -14,6 +14,7 @@ return {
     DIABLE_COPILOT = os.getenv("NVIM_DISABLE_COPILOT") ~= nil,
 
     -- Python options.
+    USE_BLACK_FROM_PYTHON = os.getenv("NVIM_USE_BLACK_FROM_PYTHON") ~= nil,
     PYTHON_VENV_PATH = os.getenv("NVIM_PYTHON_VENV_PATH"),
     PYTHON_PATH = python_path,
 }

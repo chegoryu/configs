@@ -6,3 +6,7 @@
 	gpgsign = true
 [push]
 	autoSetupRemote = true
+[core]
+	pager = less -FXRS -x4
+[branch]
+	sort = -committerdate

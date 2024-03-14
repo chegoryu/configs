@@ -10,6 +10,9 @@ return {
     IS_PINELY = is_pinely,
     PINELY_GIT_HOST = os.getenv("NVIM_PINELY_GIT_HOST"),
 
+    -- Formatting.
+    FORMAT_ON_SAVE_ALL = os.getenv("NVIM_FORMAT_ON_SAVE_ALL") ~= nil,
+
     -- Disable copilot.
     DIABLE_COPILOT = os.getenv("NVIM_DISABLE_COPILOT") ~= nil,
 

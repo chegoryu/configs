@@ -17,6 +17,10 @@ return {
         local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
         local function is_autoformatting_enabled(filetype)
+            if config.FORMAT_ON_SAVE_ALL then
+                return true
+            end
+
             local filetype_whitelist = {
                 "lua",
             }

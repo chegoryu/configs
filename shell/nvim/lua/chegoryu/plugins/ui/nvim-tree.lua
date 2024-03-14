@@ -53,7 +53,10 @@ return {
         keymap.set("n", "<leader>ee", "<cmd>NvimTreeToggle<CR>", {
             desc = "Toggle file explorer",
         })
-        keymap.set("n", "<leader>ef", "<cmd>NvimTreeFindFileToggle<CR>", {
+        keymap.set("n", "<leader>ef", "<cmd>NvimTreeFindFile<CR>", {
+            desc = "Go to current file in file explorer.",
+        })
+        keymap.set("n", "<leader>eft", "<cmd>NvimTreeFindFileToggle<CR>", {
             desc = "Toggle file explorer on current file.",
         })
         keymap.set("n", "<leader>ec", "<cmd>NvimTreeCollapse<CR>", {

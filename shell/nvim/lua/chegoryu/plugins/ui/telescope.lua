@@ -70,7 +70,7 @@ return {
             desc = "Show buffers in current neovim instance.",
         })
         keymap.set("n", "<leader>fo", "<cmd>Telescope oldfiles<CR>", {
-            desc = "Show Previously open files.",
+            desc = "Show previously open files.",
         })
         keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", {
             desc = "List available help tags.",

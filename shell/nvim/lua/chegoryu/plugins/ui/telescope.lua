@@ -67,7 +67,10 @@ return {
             desc = "Open last telescope window.",
         })
         keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<CR>", {
-            desc = "Ppen buffers in current neovim instance.",
+            desc = "Show buffers in current neovim instance.",
+        })
+        keymap.set("n", "<leader>fo", "<cmd>Telescope oldfiles<CR>", {
+            desc = "Show Previously open files.",
         })
         keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", {
             desc = "List available help tags.",

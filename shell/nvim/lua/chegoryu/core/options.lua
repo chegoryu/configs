@@ -34,6 +34,8 @@ opt.wrap = false
 
 opt.ignorecase = true
 opt.smartcase = true
+-- Remove "search hit BOTTOM, continuing at TOP" and "search hit TOP, continuing at BOTTOM" messages.
+vim.opt.shortmess:append("s")
 
 --------------------------------------------------------------------------------
 -- Appearance.

@@ -91,7 +91,7 @@ zstyle :omz:plugins:ssh-agent quiet yes
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git ssh-agent gpg-agent zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(fzf git ssh-agent gpg-agent zsh-autosuggestions zsh-syntax-highlighting)
 
 # History
 export HISTSIZE=100000
@@ -188,6 +188,3 @@ git_clone_or_pull() {
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# Enable fzf.
-[ -f "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh ] && source "${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.zsh

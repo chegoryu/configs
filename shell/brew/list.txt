@@ -41,6 +41,7 @@ htop
 icu4c
 imagemagick
 imath
+iperf3
 isl
 jasper
 jbig2dec
@@ -95,8 +96,8 @@ libxt
 libyaml
 little-cms2
 llvm
+lpeg
 lua
-lua@5.3
 luajit
 luv
 lz4
@@ -130,12 +131,6 @@ pcre2
 pinentry
 pixman
 pkg-config
-python-attrs
-python-click
-python-idna
-python-packaging
-python-pathspec
-python-platformdirs
 python@3.11
 python@3.12
 qbittorrent-cli

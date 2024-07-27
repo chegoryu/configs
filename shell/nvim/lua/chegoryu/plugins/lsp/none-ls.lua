@@ -5,6 +5,9 @@ return {
     dependencies = {
         -- Bridges gap b/w mason & null-ls.
         "jay-babu/mason-null-ls.nvim",
+
+        -- Extra formatters & linters.
+        "nvimtools/none-ls-extras.nvim",
     },
     config = function()
         local config = require("chegoryu.core.config")
@@ -71,6 +74,9 @@ return {
             end
         end
 
+        local formatting_rustfmt_source = require("none-ls.formatting.rustfmt")
+        local diagnostics_eslint_d_source = require("none-ls.diagnostics.eslint_d")
+
         local sources = {
             -- C/C++
             formatting.clang_format.with(clang_format_options),
@@ -86,7 +92,7 @@ return {
             diagnostics.golangci_lint.with(golangci_lint_options),
 
             -- Rust.
-            formatting.rustfmt.with({
+            formatting_rustfmt_source.with({
                 extra_args = {
                     "--edition=2021",
                 },
@@ -104,7 +110,7 @@ return {
                     "--tab-width=4",
                 },
             }),
-            diagnostics.eslint_d.with({
+            diagnostics_eslint_d_source.with({
                 condition = function(utils)
                     return utils.root_has_file(".eslintrc.js") or utils.root_has_file(".eslintrc.json")
                 end,

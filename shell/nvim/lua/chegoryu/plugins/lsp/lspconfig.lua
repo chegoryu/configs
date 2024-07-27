@@ -88,7 +88,7 @@ return {
             on_attach = on_attach,
 
             cmd = {
-                "clangd",
+                config.CLANGD_PATH,
                 "--background-index",
                 "--clang-tidy",
                 "--header-insertion=never",

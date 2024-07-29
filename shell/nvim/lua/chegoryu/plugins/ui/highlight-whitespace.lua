@@ -4,7 +4,7 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     opts = {
         tws = "[\r \t]\\+$",
-        clear_on_winleave = false,
+        clear_on_bufleave = false,
         palette = {
             go = {
                 tws = "RoyalBlue4",

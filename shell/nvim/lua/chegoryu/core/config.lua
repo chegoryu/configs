@@ -16,12 +16,12 @@ end
 
 local clang_format_path = os.getenv("NVIM_CLANG_FORMAT_PATH")
 if clang_format_path == nil and is_pinely then
-    clang_format_path = "clang-format-18"
+    clang_format_path = "clang-format-19"
 end
 
 local clangd_path = os.getenv("NVIM_CLANGD_PATH")
 if clangd_path == nil and is_pinely then
-    clangd_path = "clangd-18"
+    clangd_path = "clangd-19"
 elseif clangd_path == nil then
     clangd_path = "clangd"
 end

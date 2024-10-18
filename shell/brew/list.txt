@@ -20,6 +20,7 @@ dos2unix
 fd
 fontconfig
 freetype
+fribidi
 fzf
 gcc
 gettext
@@ -39,6 +40,7 @@ harfbuzz
 highway
 htop
 icu4c
+icu4c@75
 imagemagick
 imath
 iperf3
@@ -52,10 +54,15 @@ jq
 jupyterlab
 kotlin
 ktlint
+leptonica
+libarchive
 libassuan
+libb2
 libde265
+libdeflate
 libevent
 libgcrypt
+libgit2
 libgit2@1.7
 libgpg-error
 libheif
@@ -96,6 +103,7 @@ libxt
 libyaml
 little-cms2
 llvm
+llvm@18
 lpeg
 lua
 luajit
@@ -126,12 +134,15 @@ openssl@1.1
 openssl@3
 p11-kit
 pandoc
+pango
 pcre2
 pinentry
 pixman
 pkg-config
+python-packaging
 python@3.11
 python@3.12
+python@3.13
 qbittorrent-cli
 readline
 ripgrep
@@ -144,6 +155,7 @@ snakeviz
 speexdsp
 sqlite
 telnet
+tesseract
 tig
 tmux
 tree
@@ -176,6 +188,7 @@ dotnet-sdk
 epic-games
 gimp
 goland
+gstreamer-runtime
 intellij-idea-ce
 iterm2
 keepassxc
@@ -196,6 +209,7 @@ telegram
 the-unarchiver
 visual-studio-code
 vlc
+wine-stable
 wireshark
 xquartz
 zoom

@@ -5,8 +5,6 @@ return {
         "hrsh7th/cmp-nvim-lsp",
         -- Extra functionality over rust analyzer.
         "simrat39/rust-tools.nvim",
-        -- Extra functionality over typescript LSP.
-        "jose-elias-alvarez/typescript.nvim",
         { "antosha417/nvim-lsp-file-operations", config = true },
     },
     config = function()
@@ -15,7 +13,6 @@ return {
         local lspconfig = require("lspconfig")
         local cmp_nvim_lsp = require("cmp_nvim_lsp")
         local rust_tools = require("rust-tools")
-        local typescript = require("typescript")
 
         -- Enable keybinds only for when lsp server available.
         local on_attach = function(client, bufnr)
@@ -332,11 +329,9 @@ return {
         })
 
         -- Configure typescript server.
-        typescript.setup({
-            server = {
-                capabilities = capabilities,
-                on_attach = on_attach,
-            },
+        lspconfig.ts_ls.setup({
+            capabilities = capabilities,
+            on_attach = on_attach,
         })
 
         -- Configure vue server.

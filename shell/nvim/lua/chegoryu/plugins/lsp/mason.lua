@@ -60,7 +60,7 @@ return {
             "emmet_ls",
 
             -- TypeScript.
-            "tsserver",
+            "ts_ls",
 
             -- Vue.
             "vuels",

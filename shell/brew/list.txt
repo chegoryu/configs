@@ -39,8 +39,8 @@ grpcurl
 harfbuzz
 highway
 htop
-icu4c
 icu4c@75
+icu4c@76
 imagemagick
 imath
 iperf3
@@ -138,7 +138,7 @@ pango
 pcre2
 pinentry
 pixman
-pkg-config
+pkgconf
 python-packaging
 python@3.11
 python@3.12

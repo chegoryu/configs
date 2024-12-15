@@ -22,6 +22,8 @@ return {
             },
             filetypes = {
                 markdown = true,
+                cmake = true,
+                ["CMakeLists.txt"] = true,
             },
         })
 

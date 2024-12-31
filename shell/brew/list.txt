@@ -12,6 +12,7 @@ certifi
 clang-format
 cloudflared
 cmake
+cmake-docs
 coreutils
 docker
 docker-completion

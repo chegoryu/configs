@@ -86,6 +86,10 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 zstyle :omz:plugins:ssh-agent lazy yes
 zstyle :omz:plugins:ssh-agent quiet yes
 
+# Better completion
+zstyle ':completion:*' path-completion false
+zstyle ':completion:*' accept-exact-dirs true
+
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/

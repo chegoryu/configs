@@ -42,6 +42,7 @@ highway
 htop
 icu4c@75
 icu4c@76
+icu4c@77
 imagemagick
 imath
 iperf3
@@ -64,7 +65,6 @@ libdeflate
 libevent
 libgcrypt
 libgit2
-libgit2@1.7
 libgit2@1.8
 libgpg-error
 libheif
@@ -105,7 +105,7 @@ libxt
 libyaml
 little-cms2
 llvm
-llvm@18
+llvm@19
 lpeg
 lua
 luajit
@@ -131,7 +131,6 @@ openexr
 openjdk
 openjdk@17
 openjpeg
-openldap
 openssl@1.1
 openssl@3
 p11-kit
@@ -195,7 +194,9 @@ intellij-idea-ce
 iterm2
 keepassxc
 mactex
+microsoft-auto-update
 microsoft-remote-desktop
+microsoft-teams
 mongodb-compass
 obsbot-center
 outline-manager

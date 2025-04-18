@@ -3,6 +3,7 @@ return {
     branch = "0.1.x",
     dependencies = {
         "nvim-lua/plenary.nvim",
+        "rcarriga/nvim-notify",
         "nvim-tree/nvim-web-devicons",
         -- Dependency for better sorting performance.
         { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
@@ -48,6 +49,7 @@ return {
         telescope.load_extension("find_template")
         telescope.load_extension("fzf")
         telescope.load_extension("live_grep_args")
+        telescope.load_extension("notify")
 
         -- Set keymaps.
         local keymap = vim.keymap
@@ -77,6 +79,9 @@ return {
         })
         keymap.set("n", "<leader>ft", "<cmd>Telescope find_template type=insert<CR>", {
             desc = "Find template. (from template.nvim plugin).",
+        })
+        keymap.set("n", "<leader>fn", "<cmd>Telescope notify<CR>", {
+            desc = "List notifications (via nvim-notify plugin).",
         })
 
         -- Git commands.

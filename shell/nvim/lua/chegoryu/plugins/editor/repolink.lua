@@ -89,9 +89,9 @@ return {
             end
 
             custom_url_builders[config.PINELY_GIT_HOST] = function(args)
-                local url = "https://%s/projects/%s/repos/%s/browse/%s?until=%s#%s"
+                local url = "https://%s/%s/%s/-/blob/%s/%s#%s"
 
-                local anchor = tostring(args.start_line)
+                local anchor = "L" .. tostring(args.start_line)
                 if args.start_line ~= args.end_line then
                     anchor = anchor .. "-" .. tostring(args.end_line)
                 end
@@ -102,7 +102,15 @@ return {
                     return err
                 end
 
-                return string.format(url, args.host, args.host_data.project, repository, args.path, commit_hash, anchor)
+                return string.format(
+                    url,
+                    config.PINELY_NEW_GIT_HOST,
+                    string.lower(args.host_data.project),
+                    repository,
+                    commit_hash,
+                    args.path,
+                    anchor
+                )
             end
         end
 

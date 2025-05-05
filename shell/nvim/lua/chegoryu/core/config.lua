@@ -54,6 +54,7 @@ return {
     -- Enable pinely specific things (codestyle/special python version/etc).
     IS_PINELY = is_pinely,
     PINELY_GIT_HOST = os.getenv("NVIM_PINELY_GIT_HOST"),
+    PINELY_NEW_GIT_HOST = os.getenv("NVIM_PINELY_NEW_GIT_HOST"),
     PINELY_REPO_PATHS = pinely_repo_paths,
 
     -- Formatting.

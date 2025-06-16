@@ -52,7 +52,7 @@ return {
             sources = cmp.config.sources({
                 -- Copilot.
                 { name = "copilot" },
-                -- Lsp.
+                -- LSP.
                 { name = "nvim_lsp" },
                 -- Snippets.
                 { name = "luasnip" },

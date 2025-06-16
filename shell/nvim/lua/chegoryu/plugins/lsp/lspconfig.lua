@@ -10,7 +10,6 @@ return {
     config = function()
         local config = require("chegoryu.core.config")
 
-        local lspconfig = require("lspconfig")
         local cmp_nvim_lsp = require("cmp_nvim_lsp")
         local rust_tools = require("rust-tools")
 
@@ -80,7 +79,7 @@ return {
         local clangd_capabilities = cmp_nvim_lsp.default_capabilities()
         clangd_capabilities.offsetEncoding = "utf-8"
 
-        lspconfig.clangd.setup({
+        vim.lsp.config("clangd", {
             capabilities = clangd_capabilities,
             on_attach = on_attach,
 
@@ -96,7 +95,7 @@ return {
         })
 
         -- Configure cmake server.
-        lspconfig.cmake.setup({
+        vim.lsp.config("cmake", {
             capabilities = capabilities,
             on_attach = on_attach,
 
@@ -204,10 +203,10 @@ return {
             pyright_options.settings.python.venvPath = config.PYTHON_VENV_PATH
         end
 
-        lspconfig.pyright.setup(pyright_options)
+        vim.lsp.config("pyright", pyright_options)
 
         -- Configure go server.
-        lspconfig.gopls.setup({
+        vim.lsp.config("gopls", {
             capabilities = capabilities,
             on_attach = on_attach,
             cmd_env = {
@@ -244,7 +243,7 @@ return {
         })
 
         -- Configure lua server.
-        lspconfig.lua_ls.setup({
+        vim.lsp.config("lua_ls", {
             capabilities = capabilities,
             on_attach = on_attach,
 
@@ -269,7 +268,7 @@ return {
         })
 
         -- Configure C# server.
-        lspconfig.omnisharp.setup({
+        vim.lsp.config("omnisharp", {
             capabilities = capabilities,
             on_attach = on_attach,
 
@@ -279,37 +278,37 @@ return {
         })
 
         -- Configure java server.
-        lspconfig.jdtls.setup({
+        vim.lsp.config("jdtls", {
             capabilities = capabilities,
             on_attach = on_attach,
         })
 
         -- Configure kotlin server.
-        lspconfig.kotlin_language_server.setup({
+        vim.lsp.config("kotlin_language_server", {
             capabilities = capabilities,
             on_attach = on_attach,
         })
 
         -- Configure html server.
-        lspconfig.html.setup({
+        vim.lsp.config("html", {
             capabilities = capabilities,
             on_attach = on_attach,
         })
 
         -- Configure css server.
-        lspconfig.cssls.setup({
+        vim.lsp.config("cssls", {
             capabilities = capabilities,
             on_attach = on_attach,
         })
 
         -- Configure tailwindcss server.
-        lspconfig.tailwindcss.setup({
+        vim.lsp.config("tailwindcss", {
             capabilities = capabilities,
             on_attach = on_attach,
         })
 
         -- Configure emmet (UI) server.
-        lspconfig.emmet_ls.setup({
+        vim.lsp.config("emmet_ls", {
             capabilities = capabilities,
             on_attach = on_attach,
             filetypes = {
@@ -329,13 +328,13 @@ return {
         })
 
         -- Configure typescript server.
-        lspconfig.ts_ls.setup({
+        vim.lsp.config("ts_ls", {
             capabilities = capabilities,
             on_attach = on_attach,
         })
 
         -- Configure vue server.
-        lspconfig.vuels.setup({
+        vim.lsp.config("vuels", {
             capabilities = capabilities,
             on_attach = on_attach,
         })

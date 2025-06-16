@@ -1,9 +1,11 @@
 return {
     -- Managing & installing lsp servers, linters & formatters.
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     dependencies = {
+        -- LSP config must be loaded before Mason to ensure that all LSPs are configured before being enabled via mason.
+        "neovim/nvim-lspconfig",
         -- Bridges gap b/w mason & lspconfig.
-        "williamboman/mason-lspconfig.nvim",
+        "mason-org/mason-lspconfig.nvim",
         "jay-babu/mason-null-ls.nvim",
         "WhoIsSethDaniel/mason-tool-installer.nvim",
     },

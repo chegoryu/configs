@@ -71,6 +71,17 @@ return {
             vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
         end
 
+        -- Enable inline diagnostics.
+        vim.diagnostic.config({ virtual_text = true })
+
+        -- Try our best to pass common configuration for all LSP servers.
+        -- This is not enough because some plugins try to override on_attach with their own and for important plugins
+        -- we need to force our own on_attach, so this section is copypasted into all important LSPs.
+        vim.lsp.config("*", {
+            capabilities = capabilities,
+            on_attach = on_attach,
+        })
+
         -- Configure clangd server.
         local clangd_capabilities = cmp_nvim_lsp.default_capabilities()
         clangd_capabilities.offsetEncoding = "utf-8"
@@ -214,6 +225,7 @@ return {
         vim.lsp.config("rust-analyzer", {
             capabilities = capabilities,
             on_attach = function(client, bufnr)
+                -- It is almost impossible to write rust code without inlay hints.
                 vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
                 on_attach(client, bufnr)
             end,

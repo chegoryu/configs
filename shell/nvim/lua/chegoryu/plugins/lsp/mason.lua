@@ -40,7 +40,8 @@ return {
             "gopls",
 
             -- Rust.
-            "rust_analyzer",
+            -- NB: rustaceanvim manages rust-analyzer.
+            -- "rust_analyzer",
 
             -- Lua.
             "lua_ls",

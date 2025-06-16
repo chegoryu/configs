@@ -3,15 +3,11 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
         "hrsh7th/cmp-nvim-lsp",
-        -- Extra functionality over rust analyzer.
-        "simrat39/rust-tools.nvim",
         { "antosha417/nvim-lsp-file-operations", config = true },
     },
     config = function()
         local config = require("chegoryu.core.config")
-
         local cmp_nvim_lsp = require("cmp_nvim_lsp")
-        local rust_tools = require("rust-tools")
 
         -- Enable keybinds only for when lsp server available.
         local on_attach = function(client, bufnr)
@@ -215,32 +211,44 @@ return {
         })
 
         -- Configure rust server.
-        rust_tools.setup({
+        vim.lsp.config("rust-analyzer", {
+            capabilities = capabilities,
+            on_attach = function(client, bufnr)
+                vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+                on_attach(client, bufnr)
+            end,
+
+            cmd = {
+                "rust-analyzer",
+            },
+            settings = {
+                ["rust-analyzer"] = {
+                    check = {
+                        command = "clippy",
+                        extraArgs = { "--no-deps" },
+                    },
+                    checkOnSave = true,
+                    files = {
+                        watcher = "server",
+                    },
+                },
+            },
+            standalone = true,
+        })
+        -- Extra config for mrcjkb/rustaceanvim plugin.
+        vim.g.rustaceanvim = {
             tools = {
                 runnables = {
                     use_telescope = true,
                 },
                 inlay_hints = {
                     auto = true,
-                    show_parameter_hints = false,
+                    show_parameter_hints = true,
                     parameter_hints_prefix = "",
                     other_hints_prefix = "",
                 },
             },
-
-            server = {
-                capabilities = capabilities,
-                on_attach = on_attach,
-
-                settings = {
-                    ["rust-analyzer"] = {
-                        checkOnSave = {
-                            command = "clippy",
-                        },
-                    },
-                },
-            },
-        })
+        }
 
         -- Configure lua server.
         vim.lsp.config("lua_ls", {

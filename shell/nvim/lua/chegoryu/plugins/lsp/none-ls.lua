@@ -8,6 +8,7 @@ return {
 
         -- Extra formatters & linters.
         "nvimtools/none-ls-extras.nvim",
+        "davidmh/cspell.nvim",
     },
     config = function()
         local config = require("chegoryu.core.config")
@@ -76,6 +77,7 @@ return {
 
         local formatting_rustfmt_source = require("none-ls.formatting.rustfmt")
         local diagnostics_eslint_d_source = require("none-ls.diagnostics.eslint_d")
+        local cspell = require("cspell")
 
         local sources = {
             -- C/C++
@@ -115,6 +117,21 @@ return {
                     return utils.root_has_file(".eslintrc.js") or utils.root_has_file(".eslintrc.json")
                 end,
             }),
+
+            -- Spell.
+            cspell.diagnostics.with({
+                diagnostics_postprocess = function(d)
+                    d.severity = vim.diagnostic.severity.HINT
+                end,
+                filetypes = {
+                    "c",
+                    "cpp",
+                    "c",
+                    "h",
+                    "py",
+                },
+            }),
+            cspell.code_actions,
         }
 
         -- This if is required because we do not want to install csharpier.

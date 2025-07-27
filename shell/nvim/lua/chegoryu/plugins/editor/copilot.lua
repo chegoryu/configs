@@ -23,6 +23,7 @@ return {
             filetypes = {
                 markdown = true,
                 cmake = true,
+                yaml = true,
                 ["CMakeLists.txt"] = true,
             },
         })

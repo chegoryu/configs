@@ -82,13 +82,32 @@ return {
             on_attach = on_attach,
         })
 
+        local get_on_attach_for_server = function(server_name, custom_on_attach)
+            if custom_on_attach == nil then
+                custom_on_attach = on_attach
+            end
+
+            -- Get the default on_attach function for the server.
+            local default_on_attach = (vim.lsp.config[server_name] or {}).on_attach
+            if default_on_attach ~= nil then
+                return function(client, bufnr)
+                    -- Call the default on_attach function.
+                    default_on_attach(client, bufnr)
+                    -- Call our custom on_attach function.
+                    custom_on_attach(client, bufnr)
+                end
+            else
+                return custom_on_attach
+            end
+        end
+
         -- Configure clangd server.
         local clangd_capabilities = cmp_nvim_lsp.default_capabilities()
         clangd_capabilities.offsetEncoding = "utf-8"
 
         vim.lsp.config("clangd", {
             capabilities = clangd_capabilities,
-            on_attach = on_attach,
+            on_attach = get_on_attach_for_server("clangd"),
 
             cmd = {
                 config.CLANGD_PATH,
@@ -104,7 +123,7 @@ return {
         -- Configure cmake server.
         vim.lsp.config("cmake", {
             capabilities = capabilities,
-            on_attach = on_attach,
+            on_attach = get_on_attach_for_server("cmake"),
 
             filetypes = {
                 "CMakeLists.txt",
@@ -115,7 +134,7 @@ return {
         -- Configure python server.
         local pyright_options = {
             capabilities = capabilities,
-            on_attach = on_attach,
+            on_attach = get_on_attach_for_server("pyright"),
 
             settings = {
                 python = {
@@ -215,7 +234,7 @@ return {
         -- Configure go server.
         vim.lsp.config("gopls", {
             capabilities = capabilities,
-            on_attach = on_attach,
+            on_attach = get_on_attach_for_server("gopls"),
             cmd_env = {
                 GOFLAGS = "-tags=e2e",
             },
@@ -224,11 +243,11 @@ return {
         -- Configure rust server.
         vim.lsp.config("rust-analyzer", {
             capabilities = capabilities,
-            on_attach = function(client, bufnr)
+            on_attach = get_on_attach_for_server("rust-analyzer", function(client, bufnr)
                 -- It is almost impossible to write rust code without inlay hints.
                 vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
                 on_attach(client, bufnr)
-            end,
+            end),
 
             cmd = {
                 "rust-analyzer",
@@ -265,7 +284,7 @@ return {
         -- Configure lua server.
         vim.lsp.config("lua_ls", {
             capabilities = capabilities,
-            on_attach = on_attach,
+            on_attach = get_on_attach_for_server("lua_ls"),
 
             settings = {
                 Lua = {
@@ -290,7 +309,7 @@ return {
         -- Configure C# server.
         vim.lsp.config("omnisharp", {
             capabilities = capabilities,
-            on_attach = on_attach,
+            on_attach = get_on_attach_for_server("omnisharp"),
 
             cmd = {
                 "omnisharp",
@@ -300,37 +319,37 @@ return {
         -- Configure java server.
         vim.lsp.config("jdtls", {
             capabilities = capabilities,
-            on_attach = on_attach,
+            on_attach = get_on_attach_for_server("jdtls"),
         })
 
         -- Configure kotlin server.
         vim.lsp.config("kotlin_language_server", {
             capabilities = capabilities,
-            on_attach = on_attach,
+            on_attach = get_on_attach_for_server("kotlin_language_server"),
         })
 
         -- Configure html server.
         vim.lsp.config("html", {
             capabilities = capabilities,
-            on_attach = on_attach,
+            on_attach = get_on_attach_for_server("html"),
         })
 
         -- Configure css server.
         vim.lsp.config("cssls", {
             capabilities = capabilities,
-            on_attach = on_attach,
+            on_attach = get_on_attach_for_server("cssls"),
         })
 
         -- Configure tailwindcss server.
         vim.lsp.config("tailwindcss", {
             capabilities = capabilities,
-            on_attach = on_attach,
+            on_attach = get_on_attach_for_server("tailwindcss"),
         })
 
         -- Configure emmet (UI) server.
         vim.lsp.config("emmet_ls", {
             capabilities = capabilities,
-            on_attach = on_attach,
+            on_attach = get_on_attach_for_server("emmet_ls"),
             filetypes = {
                 "css",
                 "eruby",
@@ -350,13 +369,13 @@ return {
         -- Configure typescript server.
         vim.lsp.config("ts_ls", {
             capabilities = capabilities,
-            on_attach = on_attach,
+            on_attach = get_on_attach_for_server("ts_ls"),
         })
 
         -- Configure vue server.
         vim.lsp.config("vuels", {
             capabilities = capabilities,
-            on_attach = on_attach,
+            on_attach = get_on_attach_for_server("vuels"),
         })
     end,
 }

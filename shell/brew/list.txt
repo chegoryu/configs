@@ -197,7 +197,6 @@ microsoft-auto-update
 microsoft-remote-desktop
 microsoft-teams
 mongodb-compass
-obsbot-center
 outline-manager
 pgadmin4
 pycharm-ce

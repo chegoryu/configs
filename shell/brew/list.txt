@@ -128,7 +128,6 @@ openexr
 openjdk
 openjdk@17
 openjpeg
-openssl@1.1
 openssl@3
 p11-kit
 pandoc
@@ -146,7 +145,6 @@ readline
 ripgrep
 rust
 rustup
-rustup-init
 shared-mime-info
 simdjson
 skhd
@@ -182,7 +180,6 @@ zstd
 battle-net
 clion
 discord
-docker
 docker-desktop
 dotnet-sdk
 epic-games
@@ -202,7 +199,6 @@ pgadmin4
 pycharm-ce
 qbittorrent
 raycast
-skype
 slack
 steam
 sublime-text
@@ -211,7 +207,6 @@ the-unarchiver
 visual-studio-code
 vlc
 wine-stable
-wireshark
 wireshark-app
 xquartz
 zoom

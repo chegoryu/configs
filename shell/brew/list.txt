@@ -3,6 +3,7 @@
 ################################################################################
 
 aom
+bazel
 black
 brotli
 c-ares
@@ -127,6 +128,7 @@ oniguruma
 openexr
 openjdk
 openjdk@17
+openjdk@21
 openjpeg
 openssl@3
 p11-kit

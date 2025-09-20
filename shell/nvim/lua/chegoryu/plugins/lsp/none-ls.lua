@@ -80,7 +80,11 @@ return {
         local cspell = require("cspell")
 
         local sources = {
-            -- C/C++
+            -- Bazel.
+            formatting.buildifier,
+            diagnostics.buildifier,
+
+            -- C/C++.
             formatting.clang_format.with(clang_format_options),
 
             -- CMake.

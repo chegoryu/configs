@@ -101,6 +101,14 @@ return {
             end
         end
 
+        -- Configure bazel server.
+        vim.lsp.config("bzl", {
+            capabilities = capabilities,
+            on_attach = get_on_attach_for_server("bzl"),
+            root_markers = { "WORKSPACE", "WORKSPACE.bazel", "MODULE.bazel", ".bazelrc" },
+            filetypes = { "bzl", "starlark", "bzlmod", "bazel", "workspace" },
+        })
+
         -- Configure clangd server.
         local clangd_capabilities = cmp_nvim_lsp.default_capabilities()
         clangd_capabilities.offsetEncoding = "utf-8"

@@ -27,6 +27,9 @@ return {
         })
 
         local language_servers = {
+            -- Bazel.
+            "bzl",
+
             -- C/C++.
             "clangd",
 
@@ -70,6 +73,9 @@ return {
         }
 
         local formatters_and_linters = {
+            -- Bazel.
+            "buildifier",
+
             -- C/C++
             "clang_format",
 

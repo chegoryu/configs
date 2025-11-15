@@ -1,0 +1,24 @@
+#!/usr/bin/env bash -e
+
+cursor --install-extension anysphere.cpptools
+cursor --install-extension anysphere.csharp
+cursor --install-extension anysphere.cursorpyright
+cursor --install-extension anysphere.remote-containers
+cursor --install-extension anysphere.remote-ssh
+cursor --install-extension golang.go
+cursor --install-extension llvm-vs-code-extensions.vscode-clangd
+cursor --install-extension ms-azuretools.vscode-containers
+cursor --install-extension ms-azuretools.vscode-docker
+cursor --install-extension ms-dotnettools.vscode-dotnet-runtime
+cursor --install-extension ms-python.debugpy
+cursor --install-extension ms-python.python
+cursor --install-extension ms-toolsai.jupyter
+cursor --install-extension ms-toolsai.jupyter-keymap
+cursor --install-extension ms-toolsai.jupyter-renderers
+cursor --install-extension ms-toolsai.vscode-jupyter-cell-tags
+cursor --install-extension ms-toolsai.vscode-jupyter-slideshow
+cursor --install-extension ms-vscode.cmake-tools
+cursor --install-extension ms-vscode.cpptools-themes
+cursor --install-extension rust-lang.rust-analyzer
+cursor --install-extension twxs.cmake
+cursor --install-extension vadimcn.vscode-lldb

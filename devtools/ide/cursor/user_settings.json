@@ -31,5 +31,6 @@
     "[python]": {
         "editor.formatOnType": true
     },
-    "workbench.colorTheme": "Cursor Dark Midnight"
+    "workbench.colorTheme": "Cursor Dark Midnight",
+    "editor.copyWithSyntaxHighlighting": false
 }

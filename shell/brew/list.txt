@@ -130,6 +130,7 @@ openjdk
 openjdk@17
 openjdk@21
 openjpeg
+openjph
 openssl@3
 p11-kit
 pandoc
@@ -162,6 +163,7 @@ tree-sitter
 unbound
 unibilium
 utf8proc
+uvwasi
 webp
 wget
 wireshark
@@ -181,6 +183,8 @@ zstd
 
 battle-net
 clion
+codex
+cursor
 discord
 docker-desktop
 dotnet-sdk

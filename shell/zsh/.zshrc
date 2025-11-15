@@ -12,11 +12,13 @@ export CARGOPATH="$HOME/.cargo"
 export DOTNETPATH="$HOME/.dotnet"
 export GOPATH="$HOME/.go"
 export LLVMPATH="$HOME/.llvm"
+export LOCALPATH="$HOME/.local"
 
 export PATH="$CARGOPATH/bin:$PATH"
 export PATH="$DOTNETPATH/tools:$PATH"
 export PATH="$GOPATH/bin:$PATH"
 export PATH="$LLVMPATH/bin:$PATH"
+export PATH="$LOCALPATH/bin:$PATH"
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"

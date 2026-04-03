@@ -19,6 +19,10 @@ return {
                 },
             },
         },
+        lightbulb = {
+            enable = true,
+            sign = false,
+        },
         definition = {
             keys = {
                 -- Use enter to open file with definition preview.

@@ -1,0 +1,152 @@
+{
+    "$schema": "https://opencode.ai/config.json",
+    "experimental": {
+        "disable_paste_summary": true
+    },
+    "plugin": ["@franlol/opencode-md-table-formatter@0.0.3"],
+    "share": "disabled",
+    "autoupdate": false,
+    "lsp": false,
+    "formatter": false,
+    "permission": {
+        "*": "allow",
+        "webfetch": "deny"
+    },
+    "provider": {
+        "openai": {
+            "blacklist": ["*"],
+            "whitelist": ["gpt-5.4", "gpt-5.4-pro", "gpt-5.3-codex"],
+            "options": {
+                "baseURL": "https://litellm.pine.ly/v1"
+            },
+            "models": {
+                "gpt-5.4": {
+                    "id": "gpt-5.4",
+                    "name": "GPT-5.4",
+                    "family": "gpt",
+                    "attachment": true,
+                    "reasoning": true,
+                    "tool_call": true,
+                    "temperature": false,
+                    "release_date": "2026-03-05",
+                    "modalities": {
+                        "input": ["text", "image"],
+                        "output": ["text"]
+                    },
+                    "cost": {
+                        "input": 2.5,
+                        "output": 15,
+                        "cache_read": 0.25,
+                        "context_over_200k": {
+                            "input": 5,
+                            "output": 22.5,
+                            "cache_read": 0.5
+                        }
+                    },
+                    "limit": {
+                        "context": 1050000,
+                        "input": 272000,
+                        "output": 128000
+                    },
+                    "variants": {
+                        "none": {
+                            "disabled": true
+                        },
+                        "low": {
+                            "disabled": true
+                        },
+                        "medium": {
+                            "disabled": true
+                        },
+                        "xhigh": {
+                            "disabled": true
+                        }
+                    }
+                },
+                "gpt-5.3-codex": {
+                    "id": "gpt-5.3-codex",
+                    "name": "GPT-5.3 Codex",
+                    "family": "gpt-codex",
+                    "attachment": true,
+                    "reasoning": true,
+                    "tool_call": true,
+                    "temperature": false,
+                    "release_date": "2026-02-05",
+                    "modalities": {
+                        "input": ["text", "image", "pdf"],
+                        "output": ["text"]
+                    },
+                    "cost": {
+                        "input": 1.75,
+                        "output": 14,
+                        "cache_read": 0.175
+                    },
+                    "limit": {
+                        "context": 400000,
+                        "input": 272000,
+                        "output": 128000
+                    },
+                    "variants": {
+                        "none": {
+                            "disabled": true
+                        },
+                        "low": {
+                            "disabled": true
+                        },
+                        "medium": {
+                            "disabled": true
+                        },
+                        "xhigh": {
+                            "disabled": true
+                        }
+                    }
+                },
+                "gpt-5.4-pro": {
+                    "id": "gpt-5.4-pro",
+                    "name": "GPT-5.4 Pro",
+                    "family": "gpt-pro",
+                    "attachment": true,
+                    "reasoning": true,
+                    "tool_call": true,
+                    "temperature": false,
+                    "release_date": "2026-03-05",
+                    "modalities": {
+                        "input": ["text", "image"],
+                        "output": ["text"]
+                    },
+                    "cost": {
+                        "input": 30,
+                        "output": 180,
+                        "context_over_200k": {
+                            "input": 60,
+                            "output": 270
+                        }
+                    },
+                    "limit": {
+                        "context": 1050000,
+                        "input": 272000,
+                        "output": 128000
+                    },
+                    "variants": {
+                        "none": {
+                            "disabled": true
+                        },
+                        "low": {
+                            "disabled": true
+                        },
+                        "medium": {
+                            "disabled": true
+                        },
+                        "xhigh": {
+                            "disabled": true
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "server": {
+        "port": 4096,
+        "hostname": "127.0.0.1"
+    }
+}

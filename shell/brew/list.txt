@@ -2,6 +2,7 @@
 # Formulae.
 ################################################################################
 
+ada-url
 aom
 bazel
 black
@@ -10,6 +11,7 @@ c-ares
 ca-certificates
 cairo
 certifi
+cffi
 clang-format
 cloudflared
 cmake
@@ -21,11 +23,13 @@ docker-completion
 docker-compose
 dos2unix
 fd
+fmt
 fontconfig
 freetype
 fribidi
 fzf
 gcc
+gdk-pixbuf
 gettext
 ghostscript
 giflib
@@ -37,13 +41,16 @@ gnutls
 go
 golangci-lint
 gradle
+gradle-completion
 graphite2
 grpcurl
 harfbuzz
+hdrhistogram_c
 highway
 htop
 icu4c@76
 icu4c@77
+icu4c@78
 imagemagick
 imath
 iperf3
@@ -61,6 +68,7 @@ leptonica
 libarchive
 libassuan
 libb2
+libdatrie
 libde265
 libdeflate
 libevent
@@ -82,14 +90,17 @@ libngtcp2
 libomp
 libpng
 libraw
+librsvg
 libsm
 libsmi
 libsodium
 libssh
 libssh2
 libtasn1
+libthai
 libtiff
 libtool
+libultrahdr
 libunistring
 libusb
 libuv
@@ -103,8 +114,11 @@ libxmu
 libxrender
 libxt
 libyaml
+libzip
 little-cms2
+llhttp
 llvm
+llvm@21
 lpeg
 lua
 luajit
@@ -125,6 +139,7 @@ node
 npth
 omnisharp-mono
 oniguruma
+opencode
 openexr
 openjdk
 openjdk@17
@@ -139,13 +154,16 @@ pcre2
 pinentry
 pixman
 pkgconf
+pycparser
 python-packaging
 python@3.11
 python@3.12
 python@3.13
+python@3.14
 qbittorrent-cli
 readline
 ripgrep
+rpds-py
 rust
 rustup
 shared-mime-info
@@ -160,6 +178,7 @@ tig
 tmux
 tree
 tree-sitter
+tree-sitter@0.25
 unbound
 unibilium
 utf8proc

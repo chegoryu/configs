@@ -1,0 +1,10 @@
+exports_files([
+    # Workspace-root marker: the format test resolves the real source tree from it.
+    "MODULE.bazel",
+])
+
+# `bazel run format` formats all sources (see //tools/format).
+alias(
+    name = "format",
+    actual = "//tools/format",
+)

@@ -1,0 +1,8 @@
+version: "3.9"
+services:
+  junk-python-echo-server:
+    image: ghcr.io/chegoryu/junk/python-echo-server:latest
+    container_name: junk-python-echo-server
+    ports:
+      - 127.0.0.1:9004:80
+    restart: always

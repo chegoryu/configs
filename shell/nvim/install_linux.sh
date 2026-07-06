@@ -7,8 +7,7 @@ sudo apt-get update && sudo apt-get install ninja-build gettext cmake unzip curl
 temp_dir=$(mktemp -d)
 cd "$temp_dir"
 
-# Neovim >=0.10 has very slow pyright. Do not update without check.
-git clone --depth 1 -b v0.9.4 https://github.com/neovim/neovim.git
+git clone --depth 1 -b v0.12.0 https://github.com/neovim/neovim.git
 
 cd neovim
 CMAKE_BUILD_TYPE=RelWithDebInfo sudo -E make install

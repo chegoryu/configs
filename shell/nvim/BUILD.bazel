@@ -1,0 +1,36 @@
+load("@rules_shell//shell:sh_binary.bzl", "sh_binary")
+load("@rules_shell//shell:sh_test.bzl", "sh_test")
+
+sh_binary(
+    name = "install_linux",
+    srcs = ["install_linux.sh"],
+)
+
+alias(
+    name = "nvim_bin",
+    actual = select({
+        "//tools/platforms:linux_x86_64": "@neovim_linux_x86_64//:bin/nvim",
+        "//tools/platforms:macos_aarch64": "@neovim_macos_aarch64//:bin/nvim",
+        "//tools/platforms:macos_x86_64": "@neovim_macos_x86_64//:bin/nvim",
+    }),
+)
+
+alias(
+    name = "nvim_runtime",
+    actual = select({
+        "//tools/platforms:linux_x86_64": "@neovim_linux_x86_64//:runtime",
+        "//tools/platforms:macos_aarch64": "@neovim_macos_aarch64//:runtime",
+        "//tools/platforms:macos_x86_64": "@neovim_macos_x86_64//:runtime",
+    }),
+)
+
+# Compiles every config lua file with the pinned neovim's luajit without executing it.
+sh_test(
+    name = "config_test",
+    srcs = ["config_test.sh"],
+    args = ["$(rlocationpath :nvim_bin)"],
+    data = glob(["**/*.lua"]) + [
+        ":nvim_bin",
+        ":nvim_runtime",
+    ],
+)

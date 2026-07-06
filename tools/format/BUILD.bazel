@@ -1,0 +1,39 @@
+load("@rules_shell//shell:sh_binary.bzl", "sh_binary")
+load("@rules_shell//shell:sh_test.bzl", "sh_test")
+
+alias(
+    name = "stylua",
+    actual = select({
+        "//tools/platforms:linux_x86_64": "@stylua_linux_x86_64//:stylua",
+        "//tools/platforms:macos_aarch64": "@stylua_macos_aarch64//:stylua",
+        "//tools/platforms:macos_x86_64": "@stylua_macos_x86_64//:stylua",
+    }),
+)
+
+# `bazel run //tools/format` formats lua in place; the test checks formatting.
+# Hand-rolled because aspect_rules_lint has no stylua support.
+sh_binary(
+    name = "format",
+    srcs = ["format.sh"],
+    args = ["$(rootpath :stylua)"],
+    data = [":stylua"],
+    visibility = ["//visibility:public"],
+)
+
+# Runs locally (unsandboxed) over the real source tree resolved from the workspace-root marker.
+sh_test(
+    name = "format_test",
+    srcs = ["format_test.sh"],
+    args = [
+        "$(rootpath :stylua)",
+        "$(rootpath //:MODULE.bazel)",
+    ],
+    data = [
+        ":stylua",
+        "//:MODULE.bazel",
+    ],
+    tags = [
+        "local",
+        "no-cache",
+    ],
+)

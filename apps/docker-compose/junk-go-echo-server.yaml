@@ -1,7 +1,7 @@
 version: "3.9"
 services:
   junk-go-echo-server:
-    image: chegoryu/junk-go-echo-server:latest
+    image: ghcr.io/chegoryu/junk/go-echo-server:latest
     container_name: junk-go-echo-server
     ports:
       - 127.0.0.1:9001:80

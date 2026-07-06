@@ -1,0 +1,8 @@
+version: "3.9"
+services:
+  junk-cpp-echo-server:
+    image: ghcr.io/chegoryu/junk/cpp-echo-server:latest
+    container_name: junk-cpp-echo-server
+    ports:
+      - 127.0.0.1:9003:80
+    restart: always

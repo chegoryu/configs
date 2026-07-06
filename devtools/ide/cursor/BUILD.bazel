@@ -1,0 +1,11 @@
+load("@rules_shell//shell:sh_binary.bzl", "sh_binary")
+
+sh_binary(
+    name = "install_extensions",
+    srcs = ["install_extensions.sh"],
+)
+
+sh_binary(
+    name = "export_extensions",
+    srcs = ["export_extensions.sh"],
+)

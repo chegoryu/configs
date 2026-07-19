@@ -1,0 +1,10 @@
+load("//templates:defs.bzl", "template_source")
+
+package(default_visibility = ["//templates:__pkg__"])
+
+template_source(
+    name = "empty_sh",
+    src = "empty.sh.tpl",
+    check_cmd = "bash -n",
+    out = "generated/empty.sh",
+)

@@ -1,0 +1,10 @@
+load("//templates:defs.bzl", "template_source")
+
+package(default_visibility = ["//templates:__pkg__"])
+
+# No hermetic kotlin toolchain is set up, so only marker resolution is checked.
+template_source(
+    name = "empty_src_gen",
+    src = "empty.kt",
+    out = "generated/empty.kt",
+)

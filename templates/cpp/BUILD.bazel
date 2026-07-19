@@ -1,0 +1,60 @@
+load("@rules_cc//cc:cc_binary.bzl", "cc_binary")
+load("@rules_cc//cc:cc_library.bzl", "cc_library")
+load("//templates:defs.bzl", "template_source")
+
+package(default_visibility = ["//templates:__pkg__"])
+
+template_source(
+    name = "empty_cpp_src",
+    src = "empty.cpp",
+    out = "generated/empty.cpp",
+)
+
+cc_binary(
+    name = "empty_cpp",
+    srcs = ["generated/empty.cpp"],
+)
+
+template_source(
+    name = "cp_main_src",
+    src = "competitive_programming/cp_main.cpp",
+    out = "generated/cp_main.cpp",
+)
+
+cc_binary(
+    name = "cp_main",
+    srcs = ["generated/cp_main.cpp"],
+)
+
+# Snippet templates have no includes of their own: they are pasted above main()
+# into a cp_main.cpp file, so compile them in that context.
+[
+    (
+        genrule(
+            name = "%s_src" % snippet,
+            srcs = [
+                "competitive_programming/cp_main.cpp",
+                "competitive_programming/%s.cpp" % snippet,
+            ],
+            outs = ["generated/%s_in_context.cpp" % snippet],
+            cmd = """
+{
+    sed '/^int main() {$$/,$$d' $(location competitive_programming/cp_main.cpp)
+    sed -e 's|{{_cursor_}}||g' $(location competitive_programming/%s.cpp)
+} > $@
+if grep -q '{{_' $@; then
+    echo "Unresolved template markers in $@:" >&2
+    exit 1
+fi
+""" % snippet,
+        ),
+        cc_library(
+            name = snippet,
+            srcs = ["generated/%s_in_context.cpp" % snippet],
+        ),
+    )
+    for snippet in [
+        "bigint",
+        "fastio",
+    ]
+]

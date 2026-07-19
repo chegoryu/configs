@@ -1,0 +1,5 @@
+common --repo_env=BAZEL_DO_NOT_DETECT_CPP_TOOLCHAIN=1
+common --cxxopt=-std=c++23
+common --host_cxxopt=-std=c++23
+
+common --test_output=errors

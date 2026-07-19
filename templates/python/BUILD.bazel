@@ -1,0 +1,32 @@
+load("@rules_python//python:defs.bzl", "py_binary")
+load("//templates:defs.bzl", "template_source")
+
+package(default_visibility = ["//templates:__pkg__"])
+
+template_source(
+    name = "empty_py_src",
+    src = "empty.py",
+    cursor_content = "pass",
+    out = "generated/empty.py",
+)
+
+py_binary(
+    name = "empty_py",
+    srcs = ["generated/empty.py"],
+    main = "generated/empty.py",
+    precompile = "enabled",
+)
+
+template_source(
+    name = "cp_main_src",
+    src = "competitive_programming/cp_main.py",
+    cursor_content = "pass",
+    out = "generated/cp_main.py",
+)
+
+py_binary(
+    name = "cp_main",
+    srcs = ["generated/cp_main.py"],
+    main = "generated/cp_main.py",
+    precompile = "enabled",
+)

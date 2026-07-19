@@ -1,0 +1,30 @@
+load("@rules_go//go:def.bzl", "go_binary")
+load("//templates:defs.bzl", "template_source")
+
+package(default_visibility = ["//templates:__pkg__"])
+
+template_source(
+    name = "empty_go_src",
+    src = "empty.go",
+    # A bare cursor removal leaves the fmt import unused, which go rejects.
+    cursor_content = "fmt.Println()",
+    out = "generated/empty.go",
+)
+
+go_binary(
+    name = "empty_go",
+    srcs = ["generated/empty.go"],
+)
+
+template_source(
+    name = "cp_main_src",
+    src = "competitive_programming/cp_main.go",
+    # A bare cursor removal leaves the fmt import unused, which go rejects.
+    cursor_content = "fmt.Println()",
+    out = "generated/cp_main.go",
+)
+
+go_binary(
+    name = "cp_main",
+    srcs = ["generated/cp_main.go"],
+)

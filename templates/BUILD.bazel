@@ -1,0 +1,25 @@
+load("@bazel_skylib//rules:build_test.bzl", "build_test")
+
+build_test(
+    name = "templates_build_test",
+    targets = [
+        "//templates/bash:empty_sh",
+        "//templates/c:empty_c",
+        "//templates/cpp:bigint",
+        "//templates/cpp:cp_main",
+        "//templates/cpp:empty_cpp",
+        "//templates/cpp:fastio",
+        "//templates/csharp:empty_src_gen",
+        "//templates/go:cp_main",
+        "//templates/go:empty_go",
+        "//templates/java:cp_main_src_gen",
+        "//templates/java:empty_src_gen",
+        "//templates/kotlin:empty_src_gen",
+        "//templates/python:cp_main",
+        "//templates/python:empty_py",
+        "//templates/rust:cp_build",
+        "//templates/rust:cp_main",
+        "//templates/rust:empty_rs",
+        "//templates/rust:heaponly_alloc",
+    ],
+)

@@ -1,0 +1,16 @@
+load("//templates:defs.bzl", "template_source")
+
+package(default_visibility = ["//templates:__pkg__"])
+
+# No hermetic java toolchain is set up, so only marker resolution is checked.
+template_source(
+    name = "empty_src_gen",
+    src = "empty.java",
+    out = "generated/Empty.java",
+)
+
+template_source(
+    name = "cp_main_src_gen",
+    src = "competitive_programming/cp_main.java",
+    out = "generated/CpMain.java",
+)

@@ -1,0 +1,48 @@
+load("@rules_rust//rust:defs.bzl", "rust_binary", "rust_library")
+load("//templates:defs.bzl", "template_source")
+
+package(default_visibility = ["//templates:__pkg__"])
+
+template_source(
+    name = "empty_rs_src",
+    src = "empty.rs",
+    out = "generated/empty.rs",
+)
+
+rust_binary(
+    name = "empty_rs",
+    srcs = ["generated/empty.rs"],
+)
+
+template_source(
+    name = "cp_main_src",
+    src = "competitive_programming/cp_main.rs",
+    out = "generated/cp_main.rs",
+)
+
+rust_binary(
+    name = "cp_main",
+    srcs = ["generated/cp_main.rs"],
+)
+
+template_source(
+    name = "cp_build_src",
+    src = "competitive_programming/cp_build.rs",
+    out = "generated/cp_build.rs",
+)
+
+rust_binary(
+    name = "cp_build",
+    srcs = ["generated/cp_build.rs"],
+)
+
+template_source(
+    name = "heaponly_alloc_src",
+    src = "competitive_programming/heaponly_alloc.rs",
+    out = "generated/heaponly_alloc.rs",
+)
+
+rust_library(
+    name = "heaponly_alloc",
+    srcs = ["generated/heaponly_alloc.rs"],
+)

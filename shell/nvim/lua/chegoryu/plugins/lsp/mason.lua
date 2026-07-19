@@ -28,7 +28,7 @@ return {
 
         local language_servers = {
             -- Bazel.
-            "bzl",
+            "starpls",
 
             -- C/C++.
             "clangd",

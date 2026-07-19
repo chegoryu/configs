@@ -88,7 +88,7 @@ return {
                 return target_repo, hash_resolve_result.commit_hash, nil
             end
 
-            custom_url_builders[config.PINELY_GIT_HOST] = function(args)
+            local pinely_url_builder = function(args)
                 local url = "https://%s/%s/%s/-/blob/%s/%s#%s"
 
                 local anchor = "L" .. tostring(args.start_line)
@@ -112,19 +112,41 @@ return {
                     anchor
                 )
             end
+
+            -- Register the same builder under both the legacy and new git hosts so remotes
+            -- from either host resolve correctly.
+            if config.PINELY_GIT_HOST and config.PINELY_GIT_HOST ~= "" then
+                custom_url_builders[config.PINELY_GIT_HOST] = pinely_url_builder
+            end
+            if config.PINELY_NEW_GIT_HOST and config.PINELY_NEW_GIT_HOST ~= "" then
+                custom_url_builders[config.PINELY_NEW_GIT_HOST] = pinely_url_builder
+            end
         end
 
         repolink.setup({
             use_full_commit_hash = true,
             custom_url_parser = function(remote_url)
                 if config.IS_PINELY then
-                    local pinelygit_pattern = "^(.-)git@([^:]+):([^/]+)/([^/]+)/(.+).git$"
-                    local _, host, _, project, repository = string.match(remote_url, pinelygit_pattern)
+                    -- Three-segment form: git@host:group/project/repo.git (the discarded group is legacy).
+                    local three_segment_pattern = "^(.-)git@([^:]+):([^/]+)/([^/]+)/(.+)%.git$"
+                    local _, host, _, project, repository = string.match(remote_url, three_segment_pattern)
                     if host then
                         return host,
                             {
                                 project = project,
                                 repository = repository,
+                            },
+                            nil
+                    end
+
+                    -- Two-segment form: git@host:project/repo.git (e.g. git@gitlab.pine.ly:twix/twix.git).
+                    local two_segment_pattern = "^(.-)git@([^:]+):([^/]+)/(.+)%.git$"
+                    local _, host2, project2, repository2 = string.match(remote_url, two_segment_pattern)
+                    if host2 then
+                        return host2,
+                            {
+                                project = project2,
+                                repository = repository2,
                             },
                             nil
                     end

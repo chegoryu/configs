@@ -3,6 +3,7 @@ return {
         "nvim-treesitter/nvim-treesitter",
         event = { "BufReadPre", "BufNewFile" },
         build = ":TSUpdate",
+        branch = "master",
         dependencies = {
             "windwp/nvim-ts-autotag",
             "JoosepAlviste/nvim-ts-context-commentstring",
@@ -16,7 +17,10 @@ return {
                     enable = true,
                 },
                 -- Enable indentation.
-                indent = { enable = true },
+                indent = {
+                    enable = true,
+                    disable = { "c", "cpp" },
+                },
                 -- Enable autotagging.
                 autotag = {
                     enable = true,

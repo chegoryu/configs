@@ -102,9 +102,9 @@ return {
         end
 
         -- Configure bazel server.
-        vim.lsp.config("bzl", {
+        vim.lsp.config("starpls", {
             capabilities = capabilities,
-            on_attach = get_on_attach_for_server("bzl"),
+            on_attach = get_on_attach_for_server("starpls"),
             root_markers = { "WORKSPACE", "WORKSPACE.bazel", "MODULE.bazel", ".bazelrc" },
             filetypes = { "bzl", "starlark", "bzlmod", "bazel", "workspace" },
         })

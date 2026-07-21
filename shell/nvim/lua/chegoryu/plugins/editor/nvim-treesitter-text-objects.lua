@@ -1,12 +1,13 @@
 return {
     "nvim-treesitter/nvim-treesitter-textobjects",
+    branch = "master",
     lazy = true,
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
         "nvim-treesitter/nvim-treesitter",
     },
     config = function()
-        require("nvim-treesitter-textobjects").setup({
+        require("nvim-treesitter.configs").setup({
             textobjects = {
                 select = {
                     enable = true,
@@ -99,7 +100,7 @@ return {
             },
         })
 
-        local ts_repeat_move = require("nvim-treesitter-textobjects.repeatable_move")
+        local ts_repeat_move = require("nvim-treesitter.textobjects.repeatable_move")
 
         -- Vim way: ; goes to the direction you were moving.
         vim.keymap.set({ "n", "x", "o" }, ";", ts_repeat_move.repeat_last_move, {
